@@ -1,0 +1,5 @@
+import {
+  "forey217/moonged" @ged,
+}
+
+pkgtype(kind: "executable")
