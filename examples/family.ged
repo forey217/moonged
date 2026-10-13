@@ -1,0 +1,36 @@
+0 HEAD
+1 SOUR MoonGED
+1 GEDC
+2 VERS 7.0
+0 @I1@ INDI
+1 NAME 安 /李/
+1 FAMS @F1@
+1 BIRT
+2 DATE 1960
+0 @I2@ INDI
+1 NAME 梅 /周/
+1 FAMS @F1@
+0 @I3@ INDI
+1 NAME 君 /李/
+1 FAMC @F1@
+1 FAMS @F2@
+1 BIRT
+2 DATE ABT 1990
+1 NOTE 合成样例，所有人物均为虚构。
+2 CONT 不代表任何真实家谱记录。
+0 @I4@ INDI
+1 NAME 乐 /王/
+1 FAMS @F2@
+0 @I5@ INDI
+1 NAME 星 /李/
+1 FAMC @F2@
+2 PEDI ADOPTED
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+0 @F2@ FAM
+1 HUSB @I3@
+1 WIFE @I4@
+1 CHIL @I5@
+0 TRLR

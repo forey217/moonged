@@ -1,0 +1,9 @@
+0 HEAD
+1 GEDC
+2 VERS 7.0
+0 @I1@ INDI
+1 NAME Duplicate /One/
+1 FAMC @F_MISSING@
+0 @I1@ INDI
+1 NAME Duplicate /Two/
+0 TRLR
