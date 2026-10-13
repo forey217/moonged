@@ -1,0 +1,9 @@
+examples/consumer/**
+demo/**
+tests/**
+.github/**
+.tools/**
+scripts/**
+AGENTS.md
+moon.work
+.githooks/**

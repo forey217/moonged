@@ -1,0 +1,253 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "forey217/moonged"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn audit(Document) -> Array[Diagnostic]
+
+pub fn audit_dates(Document) -> Array[Diagnostic]
+
+pub fn audit_relationships(Document) -> Array[Diagnostic] raise GedError
+
+pub fn certainly_before(DateValue, DateValue) -> Bool
+
+pub fn equivalent(Document, Document) -> Bool
+
+pub fn events(Document, Int) -> Array[Event]
+
+pub fn extract_records(Document, Array[String], max_records? : Int) -> Extracted raise GedError
+
+pub fn families(Document) -> Array[Family]
+
+pub fn family(Document, String) -> Family raise GedError
+
+pub fn find_people(Document, String) -> Array[Person]
+
+pub fn full_audit(Document) -> Array[Diagnostic]
+
+pub fn graph(Document) -> FamilyGraph raise GedError
+
+pub fn has_errors(Array[Diagnostic]) -> Bool
+
+pub fn inspect_json(Document) -> Json
+
+pub fn parse(String, limits? : Limits) -> Document raise GedError
+
+pub fn parse_bytes(Bytes, limits? : Limits) -> Document raise GedError
+
+pub fn parse_date(String) -> DateValue raise GedError
+
+pub fn people(Document) -> Array[Person]
+
+pub fn people_csv(Document, spreadsheet_safe? : Bool) -> String
+
+pub fn person(Document, String) -> Person raise GedError
+
+pub fn remap_ids(Document, Map[String, String]) -> Document raise GedError
+
+pub fn run_json(String) -> String
+
+pub fn serialize(Document, line_ending? : String) -> String raise GedError
+
+pub fn serialize_bytes(Document, line_ending? : String) -> Bytes raise GedError
+
+// Errors
+pub(all) suberror GedError {
+  Syntax(Int, String)
+  Limit(String)
+  InvalidState(String)
+  Query(String)
+} derive(@debug.Debug)
+pub fn GedError::to_repr(Self) -> @debug.Repr
+
+// Types and methods
+pub struct ByteParser {
+  // private fields
+}
+pub fn ByteParser::feed(Self, BytesView) -> Unit raise GedError
+pub fn ByteParser::finish(Self) -> Document raise GedError
+pub fn ByteParser::new(limits? : Limits) -> Self raise GedError
+
+pub(all) enum Calendar {
+  Gregorian
+  Julian
+} derive(Eq, @debug.Debug)
+pub fn Calendar::equal(Self, Self) -> Bool
+pub fn Calendar::not_equal(Self, Self) -> Bool
+pub fn Calendar::to_repr(Self) -> @debug.Repr
+
+pub struct DatePoint {
+  calendar : Calendar
+  year : Int
+  month : Int?
+  day : Int?
+  bce : Bool
+}
+
+pub(all) enum DateQualifier {
+  Exact
+  Before
+  After
+  Approximate
+  Calculated
+  Estimated
+  Between
+  Period
+} derive(Eq, @debug.Debug)
+pub fn DateQualifier::equal(Self, Self) -> Bool
+pub fn DateQualifier::not_equal(Self, Self) -> Bool
+pub fn DateQualifier::to_repr(Self) -> @debug.Repr
+
+pub struct DateValue {
+  qualifier : DateQualifier
+  first : DatePoint?
+  second : DatePoint?
+}
+pub fn DateValue::window(Self) -> DateWindow
+
+pub struct DateWindow {
+  earliest : Int64?
+  latest : Int64?
+}
+
+pub struct Diagnostic {
+  severity : Severity
+  code : String
+  line : Int
+  related_line : Int?
+  message : String
+} derive(Eq, @debug.Debug)
+pub fn Diagnostic::equal(Self, Self) -> Bool
+pub fn Diagnostic::not_equal(Self, Self) -> Bool
+pub fn Diagnostic::to_repr(Self) -> @debug.Repr
+
+pub struct Document {
+  // private fields
+}
+pub fn Document::children(Self, Int) -> Array[Int]
+pub fn Document::first(Self, Int, String) -> Int?
+pub fn Document::length(Self) -> Int
+pub fn Document::lookup(Self, String) -> Int?
+pub fn Document::node(Self, Int) -> Node?
+pub fn Document::nodes(Self) -> Array[Node]
+pub fn Document::record_indices(Self) -> Array[Int]
+pub fn Document::select(Self, Int, String) -> Array[Int]
+
+pub struct Edge {
+  from : String
+  to : String
+  relation : Relation
+  family : String?
+  pedigree : String?
+} derive(Eq, @debug.Debug)
+pub fn Edge::equal(Self, Self) -> Bool
+pub fn Edge::not_equal(Self, Self) -> Bool
+pub fn Edge::to_repr(Self) -> @debug.Repr
+
+pub struct Event {
+  node : Int
+  tag : String
+  date : String?
+  place : String?
+  sources : Array[String]
+  notes : Array[String]
+}
+
+pub struct Extracted {
+  document : Document
+  included_ids : Array[String]
+}
+
+pub struct Family {
+  record : Int
+  id : String?
+  husband : String?
+  wife : String?
+  children : Array[String]
+}
+
+pub struct FamilyGraph {
+  // private fields
+}
+pub fn FamilyGraph::ancestors(Self, String, max_depth? : Int) -> Array[Reachable] raise GedError
+pub fn FamilyGraph::descendants(Self, String, max_depth? : Int) -> Array[Reachable] raise GedError
+pub fn FamilyGraph::neighbors(Self, String) -> Array[Edge] raise GedError
+pub fn FamilyGraph::shortest_path(Self, String, String, max_depth? : Int) -> Array[Edge]? raise GedError
+
+pub struct Limits {
+  max_nodes : Int
+  max_depth : Int
+  max_line_units : Int
+  max_total_units : Int
+}
+pub fn Limits::new(max_nodes? : Int, max_depth? : Int, max_line_units? : Int, max_total_units? : Int) -> Self raise GedError
+
+pub struct Node {
+  line : Int
+  level : Int
+  xref : String?
+  tag : String
+  payload : Payload
+  parent : Int?
+} derive(Eq, @debug.Debug)
+pub fn Node::equal(Self, Self) -> Bool
+pub fn Node::not_equal(Self, Self) -> Bool
+pub fn Node::to_repr(Self) -> @debug.Repr
+
+pub struct Parser {
+  // private fields
+}
+pub fn Parser::feed(Self, String) -> Unit raise GedError
+pub fn Parser::finish(Self) -> Document raise GedError
+pub fn Parser::new(limits? : Limits) -> Self raise GedError
+
+pub(all) enum Payload {
+  Empty
+  Text(String)
+  Pointer(String)
+  Void
+} derive(Eq, @debug.Debug)
+pub fn Payload::equal(Self, Self) -> Bool
+pub fn Payload::not_equal(Self, Self) -> Bool
+pub fn Payload::target(Self) -> String?
+pub fn Payload::text(Self) -> String?
+pub fn Payload::to_repr(Self) -> @debug.Repr
+
+pub struct Person {
+  record : Int
+  id : String?
+  names : Array[String]
+  sex : String?
+  child_families : Array[String]
+  spouse_families : Array[String]
+}
+pub fn Person::display_name(Self) -> String
+
+pub struct Reachable {
+  person : String
+  generations : Int
+}
+
+pub(all) enum Relation {
+  Parent
+  Child
+  Partner
+} derive(Eq, @debug.Debug)
+pub fn Relation::equal(Self, Self) -> Bool
+pub fn Relation::not_equal(Self, Self) -> Bool
+pub fn Relation::to_repr(Self) -> @debug.Repr
+
+pub(all) enum Severity {
+  Error
+  Warning
+} derive(Eq, @debug.Debug)
+pub fn Severity::equal(Self, Self) -> Bool
+pub fn Severity::not_equal(Self, Self) -> Bool
+pub fn Severity::to_repr(Self) -> @debug.Repr
+
+// Type aliases
+
+// Traits
