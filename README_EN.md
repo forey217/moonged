@@ -8,7 +8,7 @@ Requires MoonBit stable and Node.js 24:
 
 ```sh
 moon test --target js --deny-warn
-moon build --target js --release cmd/engine
+node scripts/build-engine.mjs
 node scripts/moonged.mjs inspect examples/family.ged
 node scripts/moonged.mjs path examples/family.ged I5 I1
 node scripts/moonged.mjs normalize examples/family.ged --save exported.ged
@@ -18,6 +18,8 @@ node scripts/serve.mjs
 Open `http://127.0.0.1:4273/`. All bundled data is synthetic. Browser files are processed locally, with an 8 MiB file limit. The UI lists up to 20 families and 500 queryable people.
 
 ## Library
+
+Published module: [`forey217/moonged@0.1.0`](https://mooncakes.io/docs/forey217/moonged@0.1.0). Install with `moon add forey217/moonged@0.1.0`; a fresh unauthenticated consumer passed JS and WasmGC tests. See [registry verification](docs/registry-verification.md).
 
 Public APIs cover bounded string/UTF-8 stream parsing, canonical writing, person/family/event views, selected diagnostics, Gregorian/Julian partial date ranges, bounded ancestry/descendancy, shortest recorded-family paths, reference-closure record extraction and collision-safe ID remapping. See `pkg.generated.mbti` and the separate `examples/consumer` module.
 

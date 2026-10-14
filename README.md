@@ -22,7 +22,7 @@ MoonBit 原生 GEDCOM 7 数据交换、家庭关系查询和审查工具库。�
 
 ```sh
 moon test --target js --deny-warn
-moon build --target js --release cmd/engine
+node scripts/build-engine.mjs
 node scripts/moonged.mjs inspect examples/family.ged
 node scripts/moonged.mjs path examples/family.ged I5 I1
 node scripts/moonged.mjs normalize examples/family.ged --save exported.ged
@@ -38,7 +38,7 @@ CLI 还提供 `people`、`ancestors`、`descendants`、`nodes`；`--help` 显示
 
 ## 在 MoonBit 项目中接入
 
-模块名称：`forey217/moonged`，版本 `0.1.0`。仓库中的 `examples/consumer` 是另一个独立模块，通过 `moon.work` 使用源码依赖；包的注册表发布及安装验证状态见发布记录。
+模块名称：`forey217/moonged`，版本 `0.1.0`，已发布到 [Mooncakes](https://mooncakes.io/docs/forey217/moonged@0.1.0)。在独立项目中运行 `moon add forey217/moonged@0.1.0`。未登录安装和调用验证见 [发布记录](docs/registry-verification.md)。仓库中的 `examples/consumer` 是另一个独立模块，本地工作区通过 `moon.work` 使用源码依赖。
 
 ```moonbit
 import { "forey217/moonged" @ged }
