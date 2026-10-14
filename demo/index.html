@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MoonGED · 家谱数据工作台</title><link rel="stylesheet" href="/demo/style.css"></head>
+<body>
+  <header><a class="brand" href="/">M<span>MoonGED</span></a><span class="header-note">GEDCOM 7 / MoonBit</span><span class="local-label">本地处理 · 文件不上传</span></header>
+  <main>
+    <section class="intro"><div class="eyebrow">GENEALOGY DATA WORKBENCH</div><h1>让家谱数据，彼此读懂。</h1><p>检查文件、查看记录中的家庭关系，导出可以继续使用的数据。</p></section>
+    <div class="workspace">
+      <aside class="source panel"><div class="panel-title"><h2>01 / 数据来源</h2><span>UTF-8 .ged</span></div>
+        <label class="file-label">打开本地家谱文件<input type="file" id="file" accept=".ged,text/plain"></label>
+        <div class="sample-buttons"><button id="sample">载入合成家谱</button><button id="broken">查看错误样例</button></div>
+        <label for="source">也可以粘贴 GEDCOM 文本</label><textarea id="source" spellcheck="false" aria-label="GEDCOM 文本"></textarea>
+        <button class="primary" id="analyze">检查并查看关系 <span>↗</span></button>
+        <p id="source-status" class="status" role="status">载入合成样例后即可开始。</p>
+      </aside>
+      <section class="results">
+        <div class="metrics"><div><span>人物记录</span><strong id="people-count">—</strong></div><div><span>家庭记录</span><strong id="family-count">—</strong></div><div><span>数据检查</span><strong id="audit-count">—</strong></div></div>
+        <section class="panel"><div class="panel-title"><h2>02 / 家庭关系</h2><span>按文件中的 FAM 记录展示</span></div><div id="families" class="family-list"><div class="empty">家谱关系会显示在这里。</div></div>
+          <div class="relationship-query"><label>从<select id="from" aria-label="起点人物"></select></label><span>→</span><label>到<select id="to" aria-label="终点人物"></select></label><button id="query" disabled>查询关系路径</button></div><div id="path" class="path-result" aria-live="polite"></div>
+          <p class="boundary">显示记录中的链接；收养等限定会保留。关系路径不等同于生物亲缘，也不验证史料真实性。</p>
+        </section>
+        <section class="panel"><div class="panel-title"><h2>03 / 检查与交付</h2><span id="validation-status">等待检查</span></div><div id="diagnostics" class="diagnostics"><div class="empty">错误会给出行号和原因。</div></div>
+          <div class="export-buttons"><button id="download-ged" disabled>导出 GEDCOM</button><button id="download-csv" disabled>导出人物 CSV</button><button id="download-report" disabled>下载检查报告</button></div>
+          <p class="boundary">审查覆盖已公开的检查规则，包含标识、引用、日期和关系质量；并非完整 GEDCOM schema 验证。</p>
+        </section>
+      </section>
+    </div>
+    <footer>MoonGED / 原创 MoonBit 工具库 <span>演示样例全部为虚构人物。</span></footer>
+  </main>
+  <script type="module" src="/demo/app.js"></script>
+</body></html>
