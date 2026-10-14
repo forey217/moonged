@@ -23,7 +23,10 @@ pub fn ByteParser::new(limits? : Limits) -> ByteParser raise GedError {
 }
 
 ///|
-fn ByteParser::line(self : ByteParser, eol_units : Int) -> Unit raise GedError {
+fn ByteParser::line(
+  self : ByteParser,
+  eol_units : Int32,
+) -> Unit raise GedError {
   let line = @utf8.decode(self.pending.to_bytes(), ignore_bom=false) catch {
     _ => raise Syntax(self.parser.line + 1, "invalid UTF-8")
   }

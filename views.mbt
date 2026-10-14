@@ -1,6 +1,6 @@
 ///|
 pub struct Person {
-  record : Int
+  record : Int32
   id : String?
   names : Array[String]
   sex : String?
@@ -10,7 +10,7 @@ pub struct Person {
 
 ///|
 pub struct Family {
-  record : Int
+  record : Int32
   id : String?
   husband : String?
   wife : String?
@@ -19,7 +19,7 @@ pub struct Family {
 
 ///|
 pub struct Event {
-  node : Int
+  node : Int32
   tag : String
   date : String?
   place : String?
@@ -28,7 +28,7 @@ pub struct Event {
 }
 
 ///|
-fn texts(doc : Document, parent : Int, tag : String) -> Array[String] {
+fn texts(doc : Document, parent : Int32, tag : String) -> Array[String] {
   let values = []
   for index in doc.select(parent, tag) {
     if doc.nodes[index].payload is Text(s) {
@@ -39,7 +39,7 @@ fn texts(doc : Document, parent : Int, tag : String) -> Array[String] {
 }
 
 ///|
-fn pointers(doc : Document, parent : Int, tag : String) -> Array[String] {
+fn pointers(doc : Document, parent : Int32, tag : String) -> Array[String] {
   let values = []
   for index in doc.select(parent, tag) {
     if doc.nodes[index].payload is Pointer(s) {
@@ -50,7 +50,7 @@ fn pointers(doc : Document, parent : Int, tag : String) -> Array[String] {
 }
 
 ///|
-fn person_view(doc : Document, index : Int) -> Person {
+fn person_view(doc : Document, index : Int32) -> Person {
   {
     record: index,
     id: doc.nodes[index].xref,
@@ -62,7 +62,7 @@ fn person_view(doc : Document, index : Int) -> Person {
 }
 
 ///|
-fn family_view(doc : Document, index : Int) -> Family {
+fn family_view(doc : Document, index : Int32) -> Family {
   {
     record: index,
     id: doc.nodes[index].xref,
@@ -91,7 +91,7 @@ fn require_record(
   doc : Document,
   id : String,
   tag : String,
-) -> Int raise GedError {
+) -> Int32 raise GedError {
   let index = match doc.ids.get(id) {
     Some(i) => i
     None => raise Query("unknown identifier " + id)
@@ -127,7 +127,7 @@ pub fn Person::display_name(self : Person) -> String {
 
 ///|
 /// Events retain raw dates and source IDs. An event is a claim, not a verified fact.
-pub fn events(doc : Document, record : Int) -> Array[Event] {
+pub fn events(doc : Document, record : Int32) -> Array[Event] {
   let tags = [
     "ADOP", "BAPM", "BARM", "BASM", "BIRT", "BLES", "BURI", "CENS", "CHR", "CHRA",
     "CONF", "CREM", "DEAT", "EMIG", "FCOM", "GRAD", "IMMI", "NATU", "ORDN", "RETI",

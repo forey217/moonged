@@ -1,6 +1,6 @@
 ///|
 pub(all) suberror GedError {
-  Syntax(Int, String)
+  Syntax(Int32, String)
   Limit(String)
   InvalidState(String)
   Query(String)
@@ -27,12 +27,12 @@ pub extend Payload with Eq::{equal, not_equal}
 ///|
 /// A preorder node. parent is an index in the owning Document.
 pub struct Node {
-  line : Int
-  level : Int
+  line : Int32
+  level : Int32
   xref : String?
   tag : String
   payload : Payload
-  parent : Int?
+  parent : Int32?
 } derive(Eq, @debug.Debug)
 
 ///|
@@ -44,8 +44,8 @@ pub extend Node with Eq::{equal, not_equal}
 ///|
 pub struct Document {
   priv nodes : Array[Node]
-  priv records : Array[Int]
-  priv ids : Map[String, Int]
+  priv records : Array[Int32]
+  priv ids : Map[String, Int32]
 }
 
 ///|
@@ -55,17 +55,17 @@ pub fn Document::nodes(self : Document) -> Array[Node] {
 }
 
 ///|
-pub fn Document::record_indices(self : Document) -> Array[Int] {
+pub fn Document::record_indices(self : Document) -> Array[Int32] {
   self.records.copy()
 }
 
 ///|
-pub fn Document::length(self : Document) -> Int {
+pub fn Document::length(self : Document) -> Int32 {
   self.nodes.length()
 }
 
 ///|
-pub fn Document::node(self : Document, index : Int) -> Node? {
+pub fn Document::node(self : Document, index : Int32) -> Node? {
   if index < 0 || index >= self.nodes.length() {
     None
   } else {
@@ -75,12 +75,12 @@ pub fn Document::node(self : Document, index : Int) -> Node? {
 
 ///|
 /// Identifiers omit their surrounding @ delimiters.
-pub fn Document::lookup(self : Document, id : String) -> Int? {
+pub fn Document::lookup(self : Document, id : String) -> Int32? {
   self.ids.get(id)
 }
 
 ///|
-pub fn Document::children(self : Document, index : Int) -> Array[Int] {
+pub fn Document::children(self : Document, index : Int32) -> Array[Int32] {
   let out = []
   if index < 0 || index >= self.nodes.length() {
     return out
@@ -100,14 +100,14 @@ pub fn Document::children(self : Document, index : Int) -> Array[Int] {
 ///|
 pub fn Document::select(
   self : Document,
-  parent : Int,
+  parent : Int32,
   tag : String,
-) -> Array[Int] {
+) -> Array[Int32] {
   self.children(parent).filter(fn(i) { self.nodes[i].tag == tag })
 }
 
 ///|
-pub fn Document::first(self : Document, parent : Int, tag : String) -> Int? {
+pub fn Document::first(self : Document, parent : Int32, tag : String) -> Int32? {
   self.select(parent, tag).get(0)
 }
 

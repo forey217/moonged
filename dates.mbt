@@ -31,9 +31,9 @@ pub extend DateQualifier with @debug.Debug::{to_repr}
 ///|
 pub struct DatePoint {
   calendar : Calendar
-  year : Int
-  month : Int?
-  day : Int?
+  year : Int32
+  month : Int32?
+  day : Int32?
   bce : Bool
 }
 
@@ -52,12 +52,12 @@ pub struct DateWindow {
 }
 
 ///|
-fn leap(year : Int, calendar : Calendar) -> Bool {
+fn leap(year : Int32, calendar : Calendar) -> Bool {
   year % 4 == 0 && (calendar == Julian || year % 100 != 0 || year % 400 == 0)
 }
 
 ///|
-fn month_days(year : Int, month : Int, calendar : Calendar) -> Int {
+fn month_days(year : Int32, month : Int32, calendar : Calendar) -> Int32 {
   match month {
     2 => if leap(year, calendar) { 29 } else { 28 }
     4 | 6 | 9 | 11 => 30
@@ -66,7 +66,7 @@ fn month_days(year : Int, month : Int, calendar : Calendar) -> Int {
 }
 
 ///|
-fn date_number(text : StringView) -> Int raise GedError {
+fn date_number(text : StringView) -> Int32 raise GedError {
   if text.is_empty() || !text.code_units().all(fn(c) { c >= 48 && c <= 57 }) {
     raise Query("date requires ASCII positive integers")
   }
@@ -213,7 +213,7 @@ fn floor_div(n : Int64, d : Int64) -> Int64 {
 }
 
 ///|
-fn julian_day(point : DatePoint, month : Int, day : Int) -> Int64 {
+fn julian_day(point : DatePoint, month : Int32, day : Int32) -> Int64 {
   let year = if point.bce { 1 - point.year } else { point.year }
   let a = (14 - month) / 12
   let y = year.to_int64() + 4800L - a.to_int64()

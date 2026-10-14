@@ -14,8 +14,8 @@ pub extend Severity with @debug.Debug::{to_repr}
 pub struct Diagnostic {
   severity : Severity
   code : String
-  line : Int
-  related_line : Int?
+  line : Int32
+  related_line : Int32?
   message : String
 } derive(Eq, @debug.Debug)
 
@@ -28,10 +28,10 @@ pub extend Diagnostic with @debug.Debug::{to_repr}
 ///|
 fn diagnostic(
   code : String,
-  line : Int,
+  line : Int32,
   message : String,
-  severity? : Severity = Error,
-  related_line? : Int,
+  severity~ : Severity = Error,
+  related_line? : Int32,
 ) -> Diagnostic {
   { severity, code, line, related_line, message, }
 }
@@ -74,7 +74,7 @@ pub fn audit(doc : Document) -> Array[Diagnostic] {
       diagnostic("missing-trailer", last.line, "last record must be TRLR"),
     )
   }
-  let seen : Map[String, Int] = Map([])
+  let seen : Map[String, Int32] = Map([])
   let declared : Map[String, Bool] = Map([])
   if first.tag == "HEAD" {
     let gedc = doc.select(0, "GEDC")
@@ -281,7 +281,7 @@ pub fn audit(doc : Document) -> Array[Diagnostic] {
           )
         }
       }
-      let links : Map[String, Int] = Map([])
+      let links : Map[String, Int32] = Map([])
       for index in doc.children(i) {
         let child = doc.nodes[index]
         if ["HUSB", "WIFE", "CHIL"].contains(child.tag) &&

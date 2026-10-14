@@ -151,7 +151,7 @@ pub fn FamilyGraph::neighbors(
 ///|
 pub struct Reachable {
   person : String
-  generations : Int
+  generations : Int32
 }
 
 ///|
@@ -159,7 +159,7 @@ fn FamilyGraph::traverse(
   self : FamilyGraph,
   id : String,
   direction : Relation,
-  max_depth : Int,
+  max_depth : Int32,
 ) -> Array[Reachable] raise GedError {
   if max_depth < 0 || max_depth > 10000 {
     raise Query("max depth must be in 0..10000")
@@ -190,7 +190,7 @@ fn FamilyGraph::traverse(
 pub fn FamilyGraph::ancestors(
   self : FamilyGraph,
   id : String,
-  max_depth? : Int = 1000,
+  max_depth~ : Int32 = 1000,
 ) -> Array[Reachable] raise GedError {
   self.traverse(id, Parent, max_depth)
 }
@@ -199,7 +199,7 @@ pub fn FamilyGraph::ancestors(
 pub fn FamilyGraph::descendants(
   self : FamilyGraph,
   id : String,
-  max_depth? : Int = 1000,
+  max_depth~ : Int32 = 1000,
 ) -> Array[Reachable] raise GedError {
   self.traverse(id, Child, max_depth)
 }
@@ -211,7 +211,7 @@ pub fn FamilyGraph::shortest_path(
   self : FamilyGraph,
   from : String,
   to : String,
-  max_depth? : Int = 1000,
+  max_depth~ : Int32 = 1000,
 ) -> Array[Edge]? raise GedError {
   if max_depth < 0 || max_depth > 10000 {
     raise Query("max depth must be in 0..10000")
@@ -333,7 +333,7 @@ pub fn audit_relationships(doc : Document) -> Array[Diagnostic] raise GedError {
     }
   }
   // Iterative DFS with color states detects cycles once, without unbounded stack.
-  let color : Map[String, Int] = Map([])
+  let color : Map[String, Int32] = Map([])
   for (id, _) in person_by_id {
     if color.get_or_default(id, 0) != 0 {
       continue

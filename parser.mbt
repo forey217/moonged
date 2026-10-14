@@ -1,18 +1,18 @@
 ///|
 /// Limits are local resource policies, not restrictions imposed by GEDCOM 7.
 pub struct Limits {
-  max_nodes : Int
-  max_depth : Int
-  max_line_units : Int
-  max_total_units : Int
+  max_nodes : Int32
+  max_depth : Int32
+  max_line_units : Int32
+  max_total_units : Int32
 }
 
 ///|
 pub fn Limits::new(
-  max_nodes? : Int = 100000,
-  max_depth? : Int = 128,
-  max_line_units? : Int = 1048576,
-  max_total_units? : Int = 16777216,
+  max_nodes~ : Int32 = 100000,
+  max_depth~ : Int32 = 128,
+  max_line_units~ : Int32 = 1048576,
+  max_total_units~ : Int32 = 16777216,
 ) -> Limits raise GedError {
   if max_nodes < 1 ||
     max_nodes > 1000000 ||
@@ -30,12 +30,12 @@ pub fn Limits::new(
 pub struct Parser {
   priv limits : Limits
   priv nodes : Array[Node]
-  priv stack : Array[Int]
+  priv stack : Array[Int32]
   priv has_children : Array[Bool]
-  priv continuations : Map[Int, Array[String]]
+  priv continuations : Map[Int32, Array[String]]
   priv mut pending : String
-  priv mut total : Int
-  priv mut line : Int
+  priv mut total : Int32
+  priv mut line : Int32
   priv mut after_cr : Bool
   priv mut closed : Bool
   priv mut failed : Bool
@@ -83,7 +83,7 @@ fn valid_tag(s : String) -> Bool {
 }
 
 ///|
-fn check_chars(s : String, line : Int) -> Unit raise GedError {
+fn check_chars(s : String, line : Int32) -> Unit raise GedError {
   let units = s.code_units()
   let mut i = 0
   while i < units.length() {
@@ -107,9 +107,9 @@ fn check_chars(s : String, line : Int) -> Unit raise GedError {
 ///|
 fn read_token(
   s : String,
-  start : Int,
-  line : Int,
-) -> (String, Int) raise GedError {
+  start : Int32,
+  line : Int32,
+) -> (String, Int32) raise GedError {
   let mut end = start
   while end < s.length() && s[end] != 32 {
     end = end + 1
@@ -121,7 +121,7 @@ fn read_token(
 }
 
 ///|
-fn parse_line(s : String, line : Int, depth : Int) -> Node raise GedError {
+fn parse_line(s : String, line : Int32, depth : Int32) -> Node raise GedError {
   check_chars(s, line)
   let (level_text, after_level) = read_token(s, 0, line)
   if after_level == s.length() ||
@@ -318,7 +318,7 @@ pub fn Parser::finish(self : Parser) -> Document raise GedError {
     raise Syntax(1, "empty document")
   }
   let records = []
-  let ids : Map[String, Int] = Map([])
+  let ids : Map[String, Int32] = Map([])
   for i, node in self.nodes {
     if node.level == 0 {
       records.push(i)

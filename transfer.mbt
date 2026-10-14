@@ -1,7 +1,7 @@
 ///|
 fn document_from_nodes(nodes : Array[Node]) -> Document {
   let records = []
-  let ids : Map[String, Int] = Map([])
+  let ids : Map[String, Int32] = Map([])
   for i, node in nodes {
     if node.level == 0 {
       records.push(i)
@@ -76,7 +76,7 @@ pub struct Extracted {
 pub fn extract_records(
   doc : Document,
   ids : Array[String],
-  max_records? : Int = 10000,
+  max_records~ : Int32 = 10000,
 ) -> Extracted raise GedError {
   if max_records < 2 || max_records > 100000 {
     raise Query("record limit must be in 2..100000")
@@ -84,7 +84,7 @@ pub fn extract_records(
   if has_errors(audit(doc)) {
     raise Query("fix interchange errors before record extraction")
   }
-  let owner : Array[Int] = []
+  let owner : Array[Int32] = []
   let mut current = 0
   for i, node in doc.nodes {
     if node.level == 0 {
@@ -92,7 +92,7 @@ pub fn extract_records(
     }
     owner.push(current)
   }
-  let included : Map[Int, Bool] = Map([])
+  let included : Map[Int32, Bool] = Map([])
   let queue = []
   for index in [doc.records[0], doc.records[doc.records.length() - 1]] {
     if included.get(index) == None {
@@ -135,7 +135,7 @@ pub fn extract_records(
       i = i + 1
     }
   }
-  let old_to_new : Map[Int, Int] = Map([])
+  let old_to_new : Map[Int32, Int32] = Map([])
   let nodes = []
   let included_ids = []
   for i, node in doc.nodes {

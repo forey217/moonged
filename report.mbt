@@ -161,7 +161,7 @@ fn csv_cell(value : String, spreadsheet_safe : Bool) -> String {
 ///|
 /// RFC 4180 quoting and CRLF rows. Spreadsheet protection may prefix an apostrophe;
 /// disable it explicitly for raw data interchange rather than silently changing data.
-pub fn people_csv(doc : Document, spreadsheet_safe? : Bool = true) -> String {
+pub fn people_csv(doc : Document, spreadsheet_safe~ : Bool = true) -> String {
   let out = StringBuilder()
   out.write_string("id,name,sex,child_families,spouse_families\r\n")
   for p in people(doc) {

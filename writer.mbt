@@ -21,7 +21,7 @@ fn write_payload_line(
 /// CONT is emitted before ordinary children. BOM and original line endings normalize.
 pub fn serialize(
   doc : Document,
-  line_ending? : String = "\n",
+  line_ending~ : String = "\n",
 ) -> String raise GedError {
   if line_ending != "\n" && line_ending != "\r\n" && line_ending != "\r" {
     raise Query("line ending must be LF, CRLF or CR")
@@ -66,7 +66,7 @@ pub fn serialize(
 ///|
 pub fn serialize_bytes(
   doc : Document,
-  line_ending? : String = "\n",
+  line_ending~ : String = "\n",
 ) -> Bytes raise GedError {
   @utf8.encode(serialize(doc, line_ending~))
 }
