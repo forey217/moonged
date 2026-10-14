@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { run_json } from '../_build/js/release/build/cmd/engine/engine.js';
+import { run_json } from '../_build/host/engine.mjs';
 
 const options = new Map();
 for (let i = 2; i < process.argv.length; i += 2) options.set(process.argv[i], process.argv[i + 1]);

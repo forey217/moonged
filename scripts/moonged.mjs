@@ -14,7 +14,7 @@ const usage = `MoonGED — GEDCOM 7 library CLI
   node scripts/moonged.mjs path FILE FROM TO
   node scripts/moonged.mjs nodes FILE
 
-Build first: moon build --target js --release cmd/engine
+Build first: node scripts/build-engine.mjs
 Exit: 0 success, 1 syntax/I/O failure, 2 usage or audit errors.
 --save requires an existing parent directory and never replaces a file.
 IDs omit @ delimiters. Use -- before arguments beginning with --.
@@ -68,10 +68,10 @@ async function main(args) {
   if (size > 64 * 1024 * 1024) throw new Error('Input exceeds the 64 MiB host file limit.');
   const bytes = await readFile(file);
   const text = new TextDecoder('utf-8', { fatal: true }).decode(bytes);
-  const engineUrl = new URL('../_build/js/release/build/cmd/engine/engine.js', import.meta.url);
+  const engineUrl = new URL('../_build/host/engine.mjs', import.meta.url);
   let engine;
   try { engine = await import(engineUrl.href); }
-  catch { throw new Error('Build the MoonBit engine first: moon build --target js --release cmd/engine'); }
+  catch (error) { throw new Error(`Build the MoonBit engine first: node scripts/build-engine.mjs\n${error.message}`); }
   const request = { command, text };
   if (command === 'path') Object.assign(request, { from: ids[0], to: ids[1] });
   if (command === 'ancestors' || command === 'descendants') request.id = ids[0];
