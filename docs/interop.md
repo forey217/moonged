@@ -13,6 +13,6 @@
 复现：
 
 ```sh
-moon build --target js --release cmd/engine
+node scripts/build-engine.mjs
 node scripts/verify-interop.mjs --parser PATH_TO_JS_GEDCOM --schema PATH_TO_G7VALIDATION_JSON
 ```

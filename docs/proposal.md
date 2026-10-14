@@ -18,4 +18,4 @@
 
 7．参考项目与许可证：本项目 MIT；规范见 https://gedcom.io/specifications/FamilySearchGEDCOMv7.html 。独立核对参考 gedcom7code/js-gedcom（MIT/Unlicense）及官方 GEDCOM-registries，保留来源与固定版本，不将参考实现包装成 MoonBit 核心。
 
-8．GitHub 仓库：https://github.com/forey217/moonged 。公开仓库提供可复现运行命令、合成样例、测试、CI、边界说明和有效开发提交记录。
+8．GitHub 仓库：https://github.com/forey217/moonged ，含不少于 10 次有效开发提交。公开仓库提供运行命令、合成样例、测试、CI 和边界说明。软件包 forey217/moonged@0.1.0 已发布至 Mooncakes，未登录的新目录安装成功，两个外部调用测试在 JS 与 WasmGC 上均通过；安装验证记录见仓库 docs/registry-verification.md。
