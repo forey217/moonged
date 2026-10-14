@@ -7,5 +7,5 @@
 - Selected header, identifier, reference, relationship, Gregorian/Julian date and chronology checks.
 - Person/family/event views, bounded ancestors/descendants, shortest recorded-family paths, pointer-closure extraction and collision-safe identifier remapping.
 - Shared MoonBit host engine, Node CLI with non-overwriting UTF-8 file output, local browser workbench, and separate MoonBit consumer module.
-- 35 library tests plus 2 independent consumer tests, 4 CLI process tests, and 33 independent parser/schema comparison fixtures.
+- 37 library tests plus 2 independent consumer tests, 4 CLI process tests, and 33 independent parser/schema comparison fixtures.
 - Clear scope boundaries: no full GEDCOM schema-conformance claim, no GEDCOM 5 conversion, no GEDZIP/media retrieval, no inferred biological kinship or production-adoption claim.

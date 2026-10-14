@@ -59,7 +59,7 @@ fn parent_names(text : String, child_id : String) -> Array[String] raise {
 2. 档案/CI：错误样例报告第 6 行悬空引用与第 7 行重复标识，inspect 返回 2；网页禁用错误文件的直接导出。
 3. SDK 接入：独立模块调用公开 API；关系样例跨两代保留 ADOPTED 限定，并可重命名标识或提取完整引用记录。
 
-本地已通过 35 个核心测试、2 个独立模块测试及 4 个 CLI 进程测试。JS/Wasm GC 本地运行；原生后端由远程 CI 验证，结果以实际 Actions 记录为准。独立对拍的固定版本、原始报告和已发现的参考工具边界见 [interop.md](docs/interop.md)。不以测试数量代替完整标准一致性或生产采用证据。
+本地已通过 37 个核心测试、2 个独立模块测试及 4 个 CLI 进程测试。JS/Wasm GC 本地运行；原生后端由远程 CI 验证，结果以实际 Actions 记录为准。独立对拍的固定版本、原始报告和已发现的参考工具边界见 [interop.md](docs/interop.md)。不以测试数量代替完整标准一致性或生产采用证据。
 
 ## 明确的范围
 

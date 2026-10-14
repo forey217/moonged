@@ -31,7 +31,7 @@ GEDCOM 7.0 UTF-8 text only. The reader retains generic and extension structures,
 
 ## Verification
 
-35 core tests plus 2 external-module tests, 4 real CLI process tests, and 33 synthetic fixtures cross-checked with a pinned independent GEDCOM parser and official schema. See [interop details](docs/interop.md), including an observed limitation of the reference parser for leading payload spaces. JS and Wasm GC pass locally; native results are supplied by actual CI runs. None of these counts implies exhaustive standard conformance.
+37 core tests plus 2 external-module tests, 4 real CLI process tests, and 33 synthetic fixtures cross-checked with a pinned independent GEDCOM parser and official schema. See [interop details](docs/interop.md), including an observed limitation of the reference parser for leading payload spaces. JS and Wasm GC pass locally; native results are supplied by actual CI runs. None of these counts implies exhaustive standard conformance.
 
 ## License
 

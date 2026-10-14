@@ -34,10 +34,37 @@ pub struct FamilyGraph {
 }
 
 ///|
-fn graph_add(edges : Map[String, Array[Edge]], edge : Edge) -> Unit {
-  let list = edges.get_or_init(edge.from, fn() { [] })
-  if !list.contains(edge) {
-    list.push(edge)
+fn graph_add(
+  edges : Map[String, Array[Edge]],
+  seen : Map[String, Bool],
+  edge : Edge,
+) -> Unit {
+  let role = match edge.relation {
+    Parent => "P"
+    Child => "C"
+    Partner => "S"
+  }
+  let family = match edge.family {
+    Some(id) => "S" + id
+    None => "N"
+  }
+  let pedigree = match edge.pedigree {
+    Some(value) => "S" + value
+    None => "N"
+  }
+  // IDs cannot contain @. The unconstrained pedigree is the final component.
+  let key = edge.from +
+    "@" +
+    edge.to +
+    "@" +
+    role +
+    "@" +
+    family +
+    "@" +
+    pedigree
+  if seen.get(key) == None {
+    seen.set(key, true)
+    edges.get_or_init(edge.from, fn() { [] }).push(edge)
   }
 }
 
@@ -49,6 +76,7 @@ pub fn graph(doc : Document) -> FamilyGraph raise GedError {
     raise Query("fix interchange errors before building a relationship graph")
   }
   let edges : Map[String, Array[Edge]] = Map([])
+  let seen_edges : Map[String, Bool] = Map([])
   let pedigrees : Map[String, String] = Map([])
   for p in people(doc) {
     if p.id is Some(id) {
@@ -73,14 +101,14 @@ pub fn graph(doc : Document) -> FamilyGraph raise GedError {
     for parent in parents {
       for child in f.children {
         let pedigree = pedigrees.get(child + "@" + fid)
-        graph_add(edges, {
+        graph_add(edges, seen_edges, {
           from: child,
           to: parent,
           relation: Parent,
           family: f.id,
           pedigree,
         })
-        graph_add(edges, {
+        graph_add(edges, seen_edges, {
           from: parent,
           to: child,
           relation: Child,
@@ -90,14 +118,14 @@ pub fn graph(doc : Document) -> FamilyGraph raise GedError {
       }
     }
     if parents.length() == 2 {
-      graph_add(edges, {
+      graph_add(edges, seen_edges, {
         from: parents[0],
         to: parents[1],
         relation: Partner,
         family: f.id,
         pedigree: None,
       })
-      graph_add(edges, {
+      graph_add(edges, seen_edges, {
         from: parents[1],
         to: parents[0],
         relation: Partner,

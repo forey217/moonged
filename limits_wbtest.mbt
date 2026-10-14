@@ -40,3 +40,24 @@ test "anonymous family records still define relationships without invented ids" 
   assert_eq(edge.relation, Parent)
   assert_eq(edge.family, None)
 }
+
+///|
+test "wide family graphs retain all sibling links without repeated adjacency scans" {
+  let text = StringBuilder()
+  text.write_string(
+    "0 HEAD\n1 GEDC\n2 VERS 7.0\n0 @P@ INDI\n1 NAME Parent\n1 FAMS @F@\n",
+  )
+  for i = 0; i < 5000; i = i + 1 {
+    text.write_string(
+      "0 @C" + i.to_string() + "@ INDI\n1 NAME Child\n1 FAMC @F@\n",
+    )
+  }
+  text.write_string("0 @F@ FAM\n1 HUSB @P@\n")
+  for i = 0; i < 5000; i = i + 1 {
+    text.write_string("1 CHIL @C" + i.to_string() + "@\n")
+  }
+  text.write_string("0 TRLR\n")
+  let g = graph(parse(text.to_string()))
+  assert_eq(g.neighbors("P").length(), 5000)
+  assert_eq(g.descendants("P").length(), 5000)
+}

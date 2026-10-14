@@ -106,10 +106,7 @@ pub fn audit(doc : Document) -> Array[Diagnostic] {
             if parts.length() == 2 &&
               valid_tag(parts[0].to_owned()) &&
               parts[0].has_prefix("_") &&
-              (
-                parts[1].has_prefix("https://") ||
-                parts[1].has_prefix("http://")
-              ) {
+              documented_uri(parts[1]) {
               let tag = parts[0].to_owned()
               if declared.get(tag) != None {
                 out.push(

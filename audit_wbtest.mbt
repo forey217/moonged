@@ -9,6 +9,15 @@ test "complete sample passes selected interchange audit" {
 }
 
 ///|
+test "extension declarations accept URNs without remote resolution" {
+  let doc = parse(
+    "0 HEAD\n1 GEDC\n2 VERS 7.0\n1 SCHMA\n2 TAG _COLOR urn:example:color\n0 @I1@ INDI\n1 _COLOR teal\n0 TRLR\n",
+  )
+  assert_eq(audit(doc).length(), 0)
+  assert_true(equivalent(doc, parse(serialize(doc))))
+}
+
+///|
 test "duplicate IDs and dangling pointers retain actionable line numbers" {
   let doc = parse(
     "0 HEAD\n1 GEDC\n2 VERS 7.0\n0 @I1@ INDI\n1 NAME A\n0 @I1@ INDI\n1 NAME B\n1 FAMC @F9@\n0 TRLR\n",
