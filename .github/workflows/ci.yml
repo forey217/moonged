@@ -1,0 +1,43 @@
+name: Verify MoonGED
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install official MoonBit toolchain
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+      - run: moon version --all
+      - run: moon fmt --check
+      - run: moon check --target js --deny-warn
+      - run: moon test --target js --deny-warn
+      - run: moon test --target wasm-gc --deny-warn
+      - run: moon test --target native --deny-warn
+      - run: moon build --target js --release cmd/engine
+      - run: moon run cmd/main --target js
+      - run: node --test tests/*.test.mjs
+      - name: Checkout independent GEDCOM parser
+        uses: actions/checkout@v4
+        with:
+          repository: gedcom7code/js-gedcom
+          ref: 9296068bd6a461cdd93f9edc74d8457995897afe
+          path: .tools/gedcom-reference
+      - name: Checkout GEDCOM 7 schema
+        uses: actions/checkout@v4
+        with:
+          repository: FamilySearch/GEDCOM-registries
+          ref: 05519e8aa4162843e737dd761df3a2aae7ea0860
+          path: .tools/gedcom-registry
+      - name: Independent parser and schema validation
+        run: node scripts/verify-interop.mjs --parser .tools/gedcom-reference --schema .tools/gedcom-registry/generated_files/g7validation.json --report _build/interop.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gedcom-interoperability-report
+          path: _build/interop.json
