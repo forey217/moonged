@@ -1,0 +1,15 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "forey217/genealogy-consumer-example"
+
+// Values
+pub fn parent_names(String, String) -> Array[String] raise
+
+pub fn round_trip(String) -> Bool raise
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits
