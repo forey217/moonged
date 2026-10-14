@@ -1,4 +1,4 @@
-import { run_json } from '/_build/js/release/build/cmd/engine/engine.js';
+import { run_json } from '/_build/host/engine.mjs';
 const $ = id => document.getElementById(id);
 let report, currentText = '', generation = 0;
 const relations = { parent: '记录中的父母', child: '记录中的子女', partner: '家庭伴侣' };
