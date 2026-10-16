@@ -1,6 +1,6 @@
 # MoonGED
 
-[English](README_EN.md) · [标准与边界](docs/interop.md) · [选题调查](docs/ecosystem-review.md)
+[English](README_EN.md) · [读写符合性与复杂案例](docs/text-conformance.md) · [独立核对](docs/interop.md) · [选题调查](docs/ecosystem-review.md)
 
 MoonBit 原生 GEDCOM 7 数据交换、家庭关系查询和审查工具库。输入家谱软件导出的 UTF-8 `.ged` 文件，读取人物、家庭、事件和史料引用，检查断链，再导出或供其他 MoonBit 项目查询。
 
@@ -8,8 +8,8 @@ MoonBit 原生 GEDCOM 7 数据交换、家庭关系查询和审查工具库。�
 
 ## 已有能力
 
-- 受限文本解析及增量 UTF-8 字节解析。支持跨字节分块、BOM、LF/CRLF/CR；保留 Unicode、显著空白、CONT 多行备注、扩展结构及空引用。
-- 规范化 GEDCOM 写出。记录和同类字段顺序保留，BOM/换行规范化，不承诺字节级不变。
+- 带资源限额的完整文本容器解析及增量 UTF-8 字节解析，不按已实现字段筛选文档。支持跨字节分块、BOM、LF/CRLF/CR；保留 Unicode、显著空白、CONT 多行备注、扩展结构及空引用。
+- 规范化 GEDCOM 写出。记录和同类字段顺序保留，默认无 BOM、LF 和末尾换行；SDK 可选择 BOM 与 LF/CRLF/CR，不承诺字节级不变。
 - 选定规则审查：HEAD/GEDC/TRLR、重复标识、悬空/类型错误引用、部分单例字段、扩展声明，以及双向链接缺失、关系环路等质量提示。
 - 人物、家庭、事件视图；有界祖先/后代遍历及最短家庭路径。PEDI 收养等限定按原记录保留，不据此推断生物亲缘。
 - Gregorian/Julian 日期、部分日期与 BCE，保守比较日期范围；ABT/EST 不产生假定的确定生日。其他日历原文保留并提示不做计算。
@@ -38,7 +38,7 @@ CLI 还提供 `people`、`ancestors`、`descendants`、`nodes`；`--help` 显示
 
 ## 在 MoonBit 项目中接入
 
-模块名称：`forey217/moonged`，版本 `0.1.0`，已发布到 [Mooncakes](https://mooncakes.io/docs/forey217/moonged@0.1.0)。在独立项目中运行 `moon add forey217/moonged@0.1.0`。未登录安装和调用验证见 [发布记录](docs/registry-verification.md)。仓库中的 `examples/consumer` 是另一个独立模块，本地工作区通过 `moon.work` 使用源码依赖。
+模块名称：`forey217/moonged`，版本 `0.1.1`，已发布到 [Mooncakes](https://mooncakes.io/docs/forey217/moonged@0.1.1)。在独立项目中运行 `moon add forey217/moonged@0.1.1`。未登录安装和调用验证见 [发布记录](docs/registry-verification.md)。仓库中的 `examples/consumer` 是另一个独立模块，本地工作区通过 `moon.work` 使用源码依赖。
 
 ```moonbit
 import { "forey217/moonged" @ged }
@@ -55,15 +55,15 @@ fn parent_names(text : String, child_id : String) -> Array[String] raise {
 
 ## 验证与可复用场景
 
-1. 导入/再导出：中文和多行备注经 CLI/网页规范化，33 份合成文件与独立解析器比较输入和输出节点，并接受官方 schema 的参考工具检查。
+1. 导入/再导出：中文和多行备注经 CLI/网页规范化，36 份合成文件与独立解析器比较输入和输出节点，并接受官方 schema 的参考工具检查。
 2. 档案/CI：错误样例报告第 6 行悬空引用与第 7 行重复标识，inspect 返回 2；网页禁用错误文件的直接导出。
 3. SDK 接入：独立模块调用公开 API；关系样例跨两代保留 ADOPTED 限定，并可重命名标识或提取完整引用记录。
 
-本地已通过 37 个核心测试、2 个独立模块测试及 4 个 CLI 进程测试。JS/Wasm GC 本地运行；原生后端由远程 CI 验证，结果以实际 Actions 记录为准。独立对拍的固定版本、原始报告和已发现的参考工具边界见 [interop.md](docs/interop.md)。不以测试数量代替完整标准一致性或生产采用证据。
+本地已通过 44 个核心测试、2 个独立模块测试及 9 个 Node 测试（含 CLI 进程与复杂文档读写）。四份复杂输入、规范化预期及保留/变换边界见 [读写约定](docs/text-conformance.md)。JS/Wasm GC 本地运行；原生后端由远程 CI 验证，结果以实际 Actions 记录为准。独立对拍的固定版本、原始报告和已发现的参考工具边界见 [interop.md](docs/interop.md)。不以测试数量代替完整标准一致性或生产采用证据。
 
 ## 明确的范围
 
-目标为 FamilySearch GEDCOM 7.0 UTF-8 文本。语法模型保留通用结构；语义检查是公开列出的子集，未实现全部结构位置、基数、枚举、日历和数据类型规则。文件可缺少末尾换行，输出补上标准换行。
+目标为 FamilySearch GEDCOM 7.0 UTF-8 文本。整份文档读写覆盖七类标准记录、头尾及未知扩展，保存全部层级、顺序、载荷和指针，不经过人物视图重建；语义检查是公开列出的子集，未实现全部结构位置、基数、枚举、日历和数据类型规则。文件可缺少末尾换行，输出补上标准换行。
 
 不支持 GEDZIP、GEDCOM 5 转换、ANSEL、远程媒体、家谱网站登录或记录真实性认证。不读取私人账户，不合并同名人物，不自动确认生物亲缘。日期范围提示、最短关系路径和审查通过都不等于史料事实已被证明。暂未取得生产使用反馈。
 

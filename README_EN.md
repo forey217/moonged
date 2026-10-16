@@ -19,7 +19,7 @@ Open `http://127.0.0.1:4273/`. All bundled data is synthetic. Browser files are 
 
 ## Library
 
-Published module: [`forey217/moonged@0.1.0`](https://mooncakes.io/docs/forey217/moonged@0.1.0). Install with `moon add forey217/moonged@0.1.0`; a fresh unauthenticated consumer passed JS and WasmGC tests. See [registry verification](docs/registry-verification.md).
+Published module: [`forey217/moonged@0.1.1`](https://mooncakes.io/docs/forey217/moonged@0.1.1). Install with `moon add forey217/moonged@0.1.1`; a fresh unauthenticated consumer passed JS and WasmGC tests. See [registry verification](docs/registry-verification.md).
 
 Public APIs cover bounded string/UTF-8 stream parsing, canonical writing, person/family/event views, selected diagnostics, Gregorian/Julian partial date ranges, bounded ancestry/descendancy, shortest recorded-family paths, reference-closure record extraction and collision-safe ID remapping. See `pkg.generated.mbti` and the separate `examples/consumer` module.
 
@@ -27,13 +27,13 @@ Opaque document/parser/graph containers prevent caller mutation of internal indi
 
 ## Boundaries
 
-GEDCOM 7.0 UTF-8 text only. The reader retains generic and extension structures, but the auditor is a documented subset, not a full GEDCOM schema validator. Byte preservation, GEDZIP, legacy encoding/version conversion, media retrieval, production adoption and biological kinship inference are not claimed. Approximate dates do not receive invented exact days. Unsupported calendars are retained without arithmetic. Ancestry cycles and missing reciprocal links are review warnings because non-biological relationships may be involved.
+GEDCOM 7.0 UTF-8 text only. See the [complete-document text contract and four complex fixtures](docs/text-conformance.md) for preservation, normalization, transform and validation boundaries. The whole Document is serialized rather than reconstructed from person views. Optional bom=true output and LF/CRLF/CR are supported; existing defaults remain no BOM and LF. The reader retains generic and extension structures, but the auditor is a documented subset, not a full GEDCOM schema validator. Byte preservation, GEDZIP, legacy encoding/version conversion, media retrieval, production adoption and biological kinship inference are not claimed. Approximate dates do not receive invented exact days. Unsupported calendars are retained without arithmetic. Ancestry cycles and missing reciprocal links are review warnings because non-biological relationships may be involved.
 
 `--save` uses a temporary file and exclusive hard-link publication, refuses overwrite, requires an existing parent and a hard-link-capable filesystem. CLI exits 0 on success, 1 on parsing/I/O failure and 2 on usage/inspection errors. CSV uses RFC 4180 quoting with optional spreadsheet formula-prefix protection.
 
 ## Verification
 
-37 core tests plus 2 external-module tests, 4 real CLI process tests, and 33 synthetic fixtures cross-checked with a pinned independent GEDCOM parser and official schema. See [interop details](docs/interop.md), including an observed limitation of the reference parser for leading payload spaces. JS and Wasm GC pass locally; native results are supplied by actual CI runs. None of these counts implies exhaustive standard conformance.
+44 core tests plus 2 external-module tests, 9 Node tests including real CLI processes, and 36 synthetic fixtures cross-checked with a pinned independent GEDCOM parser and official schema. See [interop details](docs/interop.md), including an observed limitation of the reference parser for leading payload spaces. JS and Wasm GC pass locally; native results are supplied by actual CI runs. None of these counts implies exhaustive standard conformance.
 
 ## License
 

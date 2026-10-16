@@ -50,9 +50,9 @@ pub fn remap_ids(Document, Map[String, String]) -> Document raise GedError
 
 pub fn run_json(String) -> String
 
-pub fn serialize(Document, line_ending? : String) -> String raise GedError
+pub fn serialize(Document, line_ending? : String, bom? : Bool) -> String raise GedError
 
-pub fn serialize_bytes(Document, line_ending? : String) -> Bytes raise GedError
+pub fn serialize_bytes(Document, line_ending? : String, bom? : Bool) -> Bytes raise GedError
 
 // Errors
 pub(all) suberror GedError {

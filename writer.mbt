@@ -18,15 +18,20 @@ fn write_payload_line(
 
 ///|
 /// Canonical text round-trip preserves payloads and structure order, not bytes.
-/// CONT is emitted before ordinary children. BOM and original line endings normalize.
+/// CONT is emitted before ordinary children. Original line endings normalize.
+/// bom=true emits the initial UTF-8 signature recommended by GEDCOM 7 §1.1.
 pub fn serialize(
   doc : Document,
   line_ending~ : String = "\n",
+  bom~ : Bool = false,
 ) -> String raise GedError {
   if line_ending != "\n" && line_ending != "\r\n" && line_ending != "\r" {
     raise Query("line ending must be LF, CRLF or CR")
   }
   let out = StringBuilder()
+  if bom {
+    out.write_char('\u{FEFF}')
+  }
   for node in doc.nodes {
     let label = match node.xref {
       Some(id) => "@" + id + "@ " + node.tag
@@ -67,8 +72,9 @@ pub fn serialize(
 pub fn serialize_bytes(
   doc : Document,
   line_ending~ : String = "\n",
+  bom~ : Bool = false,
 ) -> Bytes raise GedError {
-  @utf8.encode(serialize(doc, line_ending~))
+  @utf8.encode(serialize(doc, line_ending~, bom~))
 }
 
 ///|
