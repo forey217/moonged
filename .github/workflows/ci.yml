@@ -10,10 +10,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Install official MoonBit toolchain
-        run: |
-          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
-          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+      - uses: hustcer/setup-moonbit@87e2bdf5cf20d3b6f5c5f266a8a513f503bb5b76
+        with:
+          version: '0.10.15+943464bfa'
+          core-version: '0.10.15+943464bfa'
       - run: moon version --all
       - run: moon fmt --check
       - run: moon check --target js --deny-warn

@@ -1,0 +1,44 @@
+0 HEAD
+1 GEDC
+2 VERS 7.0
+1 SOUR MoonGED
+0 @I1@ INDI
+1 NAME /示例/安
+2 GIVN 安
+2 SURN 示例
+2 TRAN /Shili/ An
+3 LANG zh-Latn
+1 NAME 安 /笔名/
+2 TYPE PROFESSIONAL
+3 PHRASE Pen name
+1 FAMS @F1@
+1 BIRT
+2 DATE HEBREW 1 TSH 5660
+3 PHRASE Recorded in the Hebrew calendar
+2 PLAC 千代田, 東京, 日本
+3 LANG ja
+3 TRAN Chiyoda, Tokyo, Japan
+4 LANG en
+1 NOTE 原始研究意见
+2 LANG zh
+2 TRAN Original research note
+3 LANG en
+0 @I2@ INDI
+1 NAME 梅 /合成/
+1 FAMS @F1@
+1 BIRT
+2 DATE FRENCH_R 1 VEND 1
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 MARR
+2 DATE 1 JAN 1925
+3 TIME 12:30:00Z
+2 HUSB
+3 AGE 25y
+2 WIFE
+3 AGE 23y
+2 ASSO @VOID@
+3 PHRASE An unrecorded witness
+3 ROLE WITN
+0 TRLR

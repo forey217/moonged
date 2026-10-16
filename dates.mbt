@@ -274,8 +274,9 @@ pub fn certainly_before(a : DateValue, b : DateValue) -> Bool {
 ///|
 pub fn audit_dates(doc : Document) -> Array[Diagnostic] {
   let out = []
-  for node in doc.nodes {
-    if node.tag == "DATE" && node.payload is Text(text) {
+  let standard = standard_contexts(doc)
+  for i, node in doc.nodes {
+    if standard[i] && node.tag == "DATE" && node.payload is Text(text) {
       try parse_date(text) catch {
         Query(message) =>
           out.push(

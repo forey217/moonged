@@ -1,0 +1,17 @@
+0 HEAD
+1 GEDC
+2 VERS 7.0
+1 SCHMA
+2 TAG _CATALOG urn:moonged:synthetic-catalog
+2 TAG _DETAIL urn:moonged:synthetic-detail
+0 @X1@ _CATALOG Catalog entry
+1 FAMC shelf A
+1 DATE not a calendar date
+1 NOTE Internal catalog note
+2 SOUR Literal source label
+1 _DETAIL @@I1@ is literal text
+0 @I1@ INDI
+1 NAME A /Synthetic/
+1 _CATALOG @X1@
+2 _DETAIL Extension child
+0 TRLR

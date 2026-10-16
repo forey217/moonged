@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { resolve, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { run_json } from '../_build/host/engine.mjs';
@@ -44,6 +45,9 @@ function reference(text) {
 const cases = [
   ['family-sample', await readFile(new URL('../examples/family.ged', import.meta.url), 'utf8')],
 ];
+for (const name of ['all-records', 'names-events', 'extensions']) {
+  cases.push([`complex-${name}`, await readFile(new URL(`../examples/conformance/${name}.ged`, import.meta.url), 'utf8')]);
+}
 for (let i = 0; i < 32; i++) {
   const eol = ['\n', '\r\n', '\r'][i % 3];
   const note = ['@@literal@', 'significant spaces  ', '中文😀', 'comma,"quote"', 'first'][i % 5];
@@ -59,14 +63,19 @@ for (const [name, text] of cases) {
   assert.deepEqual(original.errors, [], `${name}: independent schema validation`);
   assert.deepEqual(parsed, original.nodes, `${name}: input node semantics`);
   const output = engine('normalize', text);
+  const audit = engine('inspect', text);
+  assert.equal(audit.valid, true, `${name}: selected MoonGED checks rejected a legal fixture`);
   const exported = reference(output);
   assert.deepEqual(exported.errors, [], `${name}: exported schema validation`);
   assert.deepEqual(exported.nodes, original.nodes, `${name}: exported node semantics`);
   results.push({ name, node_count: parsed.length, input_semantics_equal: true,
     export_semantics_equal: true, reference_schema_errors: exported.errors.length,
+    input_schema_errors: original.errors.length, input_reference_warnings: original.warnings,
+    input_sha256: createHash('sha256').update(text).digest('hex'),
+    output_sha256: createHash('sha256').update(output).digest('hex'),
     reference_warnings: exported.warnings });
 }
-const report = { reference_limitations: ['Upstream parser groups leading payload spaces into the delimiter; that valid GEDCOM 7 case is covered by normative MoonGED tests rather than claimed as an oracle match.'], date: '2026-10-13', scope: '33 synthetic/owned fixtures; not exhaustive GEDCOM conformance',
+const report = { reference_limitations: ['Upstream parser groups leading payload spaces into the delimiter; examples/conformance/whitespace.ged is covered by an explicit normative golden test and is NOT counted as an independent parser match.', 'Extension structure meanings are specified in docs/text-conformance.md; the reference validator warns when an extension URI is not in its fixed registry.'], date: '2026-10-16', scope: '36 synthetic/owned fixtures, including 3 complex documents; not exhaustive GEDCOM conformance',
   reference_repository: 'https://github.com/gedcom7code/js-gedcom',
   parser_commit: '9296068bd6a461cdd93f9edc74d8457995897afe',
   schema_repository: 'https://github.com/FamilySearch/GEDCOM-registries',

@@ -1,0 +1,2 @@
+# The whitespace fixture deliberately contains CRLF, a BOM and significant spaces.
+examples/conformance/*.ged -text

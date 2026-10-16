@@ -1,0 +1,52 @@
+0 HEAD
+1 GEDC
+2 VERS 7.0
+1 SOUR MoonGED
+2 VERS 0.1.1
+1 SUBM @U1@
+0 @I1@ INDI
+1 NAME 安 /示例/
+1 FAMS @F1@
+1 SOUR @S1@
+2 PAGE 卷一，第 12 页
+2 DATA
+3 DATE 2 JAN 1900
+3 TEXT 第一行抄录
+4 CONT 第二行抄录 😀
+2 QUAY 2
+2 OBJE @M1@
+1 SNOTE @N1@
+0 @I2@ INDI
+1 NAME 梅 /合成/
+1 FAMS @F1@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 MARR
+2 DATE BET 1899 AND 1901
+2 SOUR @S1@
+3 PAGE 婚姻索引
+0 @S1@ SOUR
+1 TITL 虚构档案目录
+1 AUTH Synthetic archive
+1 TEXT 保留原始史料文本
+2 CONT 此文件没有真实人物信息
+1 REPO @R1@
+2 CALN BOX-12
+3 MEDI BOOK
+0 @R1@ REPO
+1 NAME Synthetic repository
+1 WWW https://example.org/archive
+0 @M1@ OBJE
+1 FILE media/portrait.jpg
+2 FORM image/jpeg
+2 TITL 合成人物肖像
+0 @N1@ SNOTE 共享注释
+1 CONT 保持文字、空行与引用
+1 CONT
+1 CONT 最后一行
+1 LANG zh
+0 @U1@ SUBM
+1 NAME Synthetic contributor
+1 LANG zh
+0 TRLR

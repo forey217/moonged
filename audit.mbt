@@ -37,12 +37,36 @@ fn diagnostic(
 }
 
 ///|
-fn target_record(tag : String) -> String? {
-  match tag {
+/// A standard-looking tag below a tagged extension is extension-defined (§1.5).
+/// A single preorder pass keeps that scope local to its own subtree.
+fn standard_contexts(doc : Document) -> Array[Bool] {
+  let contexts : Array[Bool] = []
+  for node in doc.nodes {
+    let parent_standard = match node.parent {
+      Some(p) => contexts[p]
+      None => true
+    }
+    contexts.push(!node.tag.has_prefix("_") && parent_standard)
+  }
+  contexts
+}
+
+///|
+fn target_record(doc : Document, index : Int32) -> String? {
+  let node = doc.nodes[index]
+  guard node.parent is Some(parent) else { return None }
+  let owner = doc.nodes[parent]
+  match node.tag {
     "FAMC" | "FAMS" => Some("FAM")
-    "HUSB" | "WIFE" | "CHIL" | "ASSO" | "ALIA" => Some("INDI")
+    "HUSB" | "WIFE" =>
+      if owner.level == 0 && owner.tag == "FAM" {
+        Some("INDI")
+      } else {
+        None
+      }
+    "CHIL" | "ASSO" | "ALIA" => Some("INDI")
     "SUBM" => Some("SUBM")
-    "SOUR" => Some("SOUR")
+    "SOUR" => if owner.tag == "HEAD" { None } else { Some("SOUR") }
     "SNOTE" => Some("SNOTE")
     "REPO" => Some("REPO")
     "OBJE" => Some("OBJE")
@@ -51,17 +75,11 @@ fn target_record(tag : String) -> String? {
 }
 
 ///|
-fn pointer_required(tag : String) -> Bool {
-  ["FAMC", "FAMS", "HUSB", "WIFE", "CHIL", "ASSO", "ALIA", "SUBM", "SNOTE"].contains(
-    tag,
-  )
-}
-
-///|
 /// Selected interchange checks, not a complete GEDCOM schema validator.
 /// Unknown structures remain in the document and are never discarded here.
 pub fn audit(doc : Document) -> Array[Diagnostic] {
   let out = []
+  let standard = standard_contexts(doc)
   let first = doc.nodes[doc.records[0]]
   let last = doc.nodes[doc.records[doc.records.length() - 1]]
   if first.tag != "HEAD" {
@@ -233,9 +251,8 @@ pub fn audit(doc : Document) -> Array[Diagnostic] {
         None => seen.set(id, i)
       }
     }
-    if pointer_required(node.tag) &&
-      !(node.payload is Pointer(_)) &&
-      node.payload != Void {
+    let expected = if standard[i] { target_record(doc, i) } else { None }
+    if expected != None && !(node.payload is Pointer(_)) && node.payload != Void {
       out.push(
         diagnostic(
           "pointer-payload",
@@ -255,7 +272,7 @@ pub fn audit(doc : Document) -> Array[Diagnostic] {
             ),
           )
         Some(target) =>
-          if target_record(node.tag) is Some(expected) &&
+          if expected is Some(expected) &&
             (doc.nodes[target].tag != expected || doc.nodes[target].level != 0) {
             out.push(
               diagnostic(
