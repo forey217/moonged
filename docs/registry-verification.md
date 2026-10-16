@@ -1,5 +1,17 @@
 # Mooncakes 发布与独立安装验证
 
+## 0.1.1 — 2026-10-16
+
+`moon publish --frozen` 返回 `200 OK`。软件包：https://mooncakes.io/docs/forey217/moonged@0.1.1 。
+
+全新独立模块执行 `moon add forey217/moonged@0.1.1`；工具链目录只关联编译器和标准库，不含登录凭据，`moon whoami` 返回 `Not logged in`。没有 moon.work、路径覆盖或预下载依赖。注册表下载的 49 个文件与发布压缩包逐字节一致。
+
+`moon check --target js --deny-warn` 通过，三个外部调用测试在 JS、WasmGC 均通过：共享备注与提交者记录及配偶年龄；扩展文字保留且真实标准指针错误仍报告；BOM/CRLF 与显著空白经公开 API 读写不变。
+
+本次验证数据为合成文本，不代表生产采用；完整读写范围见 [text-conformance.md](text-conformance.md)。工具链 moon 0.1.20261012、moonc 0.10.15+943464bfa。
+
+## 0.1.0 历史记录
+
 2026 年 10 月 14 日，`forey217/moonged@0.1.0` 发布成功，注册表响应 `200 OK`。
 
 软件包页面：https://mooncakes.io/docs/forey217/moonged@0.1.0
