@@ -1,0 +1,12 @@
+﻿0 HEAD
+1 GEDC
+2 VERS 7.0
+0 @I1@ INDI
+1 NAME 中文 é 😀
+1 NOTE   leading and trailing  
+2 CONT
+2 CONT @@I1@ is text
+2 CONT 	end  
+1 ASSO @VOID@
+2 ROLE WITN
+0 TRLR
