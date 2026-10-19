@@ -75,7 +75,7 @@ fn target_record(doc : Document, index : Int32) -> String? {
 }
 
 ///|
-/// Selected interchange checks, not a complete GEDCOM schema validator.
+/// Container, standard schema, datatypes and machine-checkable semantic rules.
 /// Unknown structures remain in the document and are never discarded here.
 pub fn audit(doc : Document) -> Array[Diagnostic] {
   let out = []
@@ -106,7 +106,7 @@ pub fn audit(doc : Document) -> Array[Diagnostic] {
       )
     } else {
       let vers = doc.select(gedc[0], "VERS")
-      if vers.length() != 1 || doc.nodes[vers[0]].payload != Text("7.0") {
+      if vers.length() != 1 || !supported_version(doc.nodes[vers[0]].payload) {
         out.push(
           diagnostic(
             "unsupported-version",
@@ -124,8 +124,18 @@ pub fn audit(doc : Document) -> Array[Diagnostic] {
             if parts.length() == 2 &&
               valid_tag(parts[0].to_owned()) &&
               parts[0].has_prefix("_") &&
-              documented_uri(parts[1]) {
+              valid_uri_reference(parts[1].to_owned()) {
               let tag = parts[0].to_owned()
+              if !documented_uri(parts[1]) {
+                out.push(
+                  diagnostic(
+                    "relative-schema-uri",
+                    doc.nodes[index].line,
+                    "relative schema URI needs an agreed base URI",
+                    severity=Warning,
+                  ),
+                )
+              }
               if declared.get(tag) != None {
                 out.push(
                   diagnostic(
@@ -311,6 +321,7 @@ pub fn audit(doc : Document) -> Array[Diagnostic] {
                 child.line,
                 "duplicate " + child.tag + " link",
                 related_line=doc.nodes[prior].line,
+                severity=Warning,
               ),
             )
           } else {
@@ -338,7 +349,21 @@ pub fn audit(doc : Document) -> Array[Diagnostic] {
       ),
     )
   }
+  let ctx = schema_context(doc)
+  out.append(audit_schema(doc, ctx))
+  out.append(audit_semantics(doc, ctx))
   out
+}
+
+///|
+fn supported_version(payload : Payload) -> Bool {
+  guard payload is Text(s) else { return false }
+  let parts = s.split(".").map(fn(x) { x.to_owned() }).to_array()
+  parts.length() >= 2 &&
+  parts.length() <= 3 &&
+  parts[0] == "7" &&
+  parts[1] == "0" &&
+  parts.all(ascii_digits)
 }
 
 ///|

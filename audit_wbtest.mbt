@@ -13,7 +13,8 @@ test "extension declarations accept URNs without remote resolution" {
   let doc = parse(
     "0 HEAD\n1 GEDC\n2 VERS 7.0\n1 SCHMA\n2 TAG _COLOR urn:example:color\n0 @I1@ INDI\n1 _COLOR teal\n0 TRLR\n",
   )
-  assert_eq(audit(doc).length(), 0)
+  assert_true(!has_errors(audit(doc)))
+  assert_true(audit(doc).any(fn(d) { d.code == "extension-unassessed" }))
   assert_true(equivalent(doc, parse(serialize(doc))))
 }
 

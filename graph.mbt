@@ -69,10 +69,15 @@ fn graph_add(
 }
 
 ///|
-/// Requires an unambiguous, structurally audited document. Reciprocal omissions
-/// are reported separately; FAM records define edges, not inferred text claims.
+/// Requires unambiguous pointer targets. Conformance diagnostics remain
+/// available even when a safe graph can be built from incomplete records.
 pub fn graph(doc : Document) -> FamilyGraph raise GedError {
-  if has_errors(audit(doc)) {
+  if audit(doc).any(fn(d) {
+      d.severity == Error &&
+      [
+        "duplicate-id", "dangling-pointer", "pointer-type", "pointer-payload", "schema-pointer-type",
+      ].contains(d.code)
+    }) {
     raise Query("fix interchange errors before building a relationship graph")
   }
   let edges : Map[String, Array[Edge]] = Map([])
@@ -280,7 +285,7 @@ pub fn audit_relationships(doc : Document) -> Array[Diagnostic] raise GedError {
             "missing-reciprocal-famc",
             doc.nodes[p.record].line,
             "FAM lists this child but INDI lacks reciprocal FAMC",
-            severity=Warning,
+            severity=Error,
             related_line=doc.nodes[f.record].line,
           ),
         )
@@ -295,7 +300,7 @@ pub fn audit_relationships(doc : Document) -> Array[Diagnostic] raise GedError {
             "missing-reciprocal-fams",
             doc.nodes[p.record].line,
             "FAM lists this partner but INDI lacks reciprocal FAMS",
-            severity=Warning,
+            severity=Error,
             related_line=doc.nodes[f.record].line,
           ),
         )

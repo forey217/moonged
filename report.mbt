@@ -130,9 +130,12 @@ pub fn inspect_json(doc : Document) -> Json {
       ("valid", Json::boolean(!has_errors(diagnostics))),
       (
         "validation_scope",
-        Json::string("selected GEDCOM 7 checks; not full schema validation"),
+        Json::string(
+          "GEDCOM 7.0.18 chapters 1–3: standard structures, cardinalities, enums, datatypes and machine-checkable cross-record rules; extension meanings and external resources are unassessed",
+        ),
       ),
       ("node_count", Json::number(doc.length().to_double())),
+      ("specification", Json::string("7.0.18")),
       ("people", Json::array(people(doc).map(person_json))),
       ("families", Json::array(families(doc).map(family_json))),
       ("diagnostics", Json::array(diagnostics.map(diagnostic_json))),
