@@ -1,3 +1,5 @@
+本文件说明完整文档读写约定。0.2.0 新增的标准语义、全部结构及日期检查，以 [标准语义符合性](semantic-conformance.md) 为准；下文 0.1.1 的测试统计保留为历史记录。
+
 # GEDCOM 7 文本读写范围与语义保留约定
 
 适用版本：MoonGED 0.1.1。依据 [FamilySearch GEDCOM 7.0.18](https://gedcom.io/specifications/FamilySearchGEDCOMv7.html)，数据头使用 `HEAD.GEDC.VERS 7.0`。本说明区分整份文档读写、标准规则审查及查询视图；三个层次不会相互代替。
@@ -49,7 +51,7 @@ let output = @ged.serialize_bytes(doc, bom=true, line_ending="\r\n")
 | 案例 | 检查内容 | 证据 |
 | --- | --- | --- |
 | [all-records.ged](../examples/conformance/all-records.ged) | 七类标准记录、源引用与引文页码、嵌套 TEXT/CONT、共享备注、媒体路径与格式、提交者 | 原始及导出节点与独立解析器相同；参考 schema 校验无错误 |
-| [names-events.ged](../examples/conformance/names-events.ged) | 多姓名优先顺序、音译、备注/地点翻译、HEBREW/FRENCH_R、DATE.TIME、MARR.HUSB/WIFE.AGE、空关联及 ROLE | 原始及导出节点独立比对；未支持日历恰有两条提示，文字不改写 |
+| [names-events.ged](../examples/conformance/names-events.ged) | 多姓名优先顺序、音译、备注/地点翻译、HEBREW/FRENCH_R、DATE.TIME、MARR.HUSB/WIFE.AGE、空关联及 ROLE | 原始及导出节点独立比对；0.2.0 已检查两种历法，文字不改写 |
 | [extensions.ged](../examples/conformance/extensions.ged) | 声明的扩展记录/子树、扩展里的 DATE/FAMC/SOUR 等标签、自定义指针与普通 @ 文本 | 全部节点独立比对；按扩展定义保存，不套用同名标准标签的日期/指针规则 |
 | [whitespace.ged](../examples/conformance/whitespace.ged) | BOM、CRLF、无末尾换行、有效前导/尾随空格、组合字符、emoji、制表符、空 CONT | CLI 输出逐字等于 [whitespace.expected.ged](../examples/conformance/whitespace.expected.ged)，并验证节点不变及写出幂等性 |
 
