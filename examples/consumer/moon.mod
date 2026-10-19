@@ -7,5 +7,5 @@ license = "MIT"
 preferred_target = "js"
 
 import {
-  "forey217/moonged@0.1.0",
+  "forey217/moonged@0.2.0",
 }
