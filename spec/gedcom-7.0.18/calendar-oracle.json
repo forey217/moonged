@@ -1,0 +1,7 @@
+{
+  "oracle": "pyluach 2.3.0",
+  "license": "MIT",
+  "source": "https://github.com/simlist/pyluach",
+  "cases": 1040,
+  "valid": 660
+}

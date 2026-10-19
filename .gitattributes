@@ -1,2 +1,4 @@
 # The whitespace fixture deliberately contains CRLF, a BOM and significant spaces.
 examples/conformance/*.ged -text
+# Pinned standard data is hashed byte-for-byte on every platform.
+spec/gedcom-7.0.18/* -text -whitespace

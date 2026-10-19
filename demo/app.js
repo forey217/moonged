@@ -40,6 +40,16 @@ function diagnosticMessage(d) {
     'missing-reciprocal-chil':'人物有 FAMC 链接，但家庭缺少对应的 CHIL',
     'missing-reciprocal-partner':'人物有 FAMS 链接，但家庭缺少对应的伴侣链接',
     'family-cardinality':'家庭的 HUSB 或 WIFE 字段出现多次', 'duplicate-family-link':'家庭中重复引用了同一条记录',
+    'structure-context':'这个标准字段放在了不允许的位置', 'structure-cardinality':'标准单例字段重复出现',
+    'required-structure':'缺少标准要求的子结构', 'payload-type':'字段内容不符合该位置的数据类型或取值范围',
+    'schema-pointer-type':'引用的目标不符合标准类型', 'required-reciprocal-link':'家庭成员缺少必须的反向引用',
+    'source-reference-cycle':'来源、共享备注或媒体记录之间存在禁止的循环引用',
+    'translation-format':'翻译缺少语言或格式说明', 'translation-distinct':'翻译的有效语言和格式与原文相同',
+    'translation-duplicate':'同级翻译的有效语言和格式重复', 'refn-reuse':'不同结构重复使用了同一个 REFN',
+    'extension-unassessed':'扩展内容已保存，外部语义尚未评估',
+    'date-arithmetic-limit':'日期格式合法，但年份超过运算资源范围',
+    'date-arithmetic-unassessed':'日期已保留，该历法或年份没有擅自换算',
+    'html-entity':'HTML 备注包含需转换为 Unicode 的非核心命名实体', 'note-mime-kind':'备注应使用文本媒体类型',
   };
   const ids = d.message.match(/@[^@]+@/g) ?? [];
   return messages[d.code] ? `${messages[d.code]}${ids.length ? '：'+ids.join('、') : ''}。` : d.message;

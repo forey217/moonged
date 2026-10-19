@@ -32,6 +32,8 @@ pub fn graph(Document) -> FamilyGraph raise GedError
 
 pub fn has_errors(Array[Diagnostic]) -> Bool
 
+pub fn html_to_plain(String) -> String
+
 pub fn inspect_json(Document) -> Json
 
 pub fn parse(String, limits? : Limits) -> Document raise GedError
@@ -74,6 +76,9 @@ pub fn ByteParser::new(limits? : Limits) -> Self raise GedError
 pub(all) enum Calendar {
   Gregorian
   Julian
+  Hebrew
+  FrenchRepublican
+  Extension(String)
 } derive(Eq, @debug.Debug)
 pub fn Calendar::equal(Self, Self) -> Bool
 pub fn Calendar::not_equal(Self, Self) -> Bool
@@ -85,6 +90,8 @@ pub struct DatePoint {
   month : Int?
   day : Int?
   bce : Bool
+  month_tag : String?
+  epoch : String?
 }
 
 pub(all) enum DateQualifier {

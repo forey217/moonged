@@ -1,0 +1,18 @@
+{
+  "specification": "7.0.18",
+  "structures": 179,
+  "parent_child_rules": 1388,
+  "enum_sets": 12,
+  "sources": {
+    "calendar-oracle.json": "56fe70f53e929f6f60ade2550d707c530c65d346eba37ffb6db015ae2d372121",
+    "cardinalities.tsv": "6b2d9acb8271ad5fc23d60013ed93f4de6354bb4a5adca3a8361643cb49823d0",
+    "enum-tags.json": "c6158cb56d7942be7d000de1d694935b425c04d973c0dde41b0f050c78c54d0d",
+    "enumerations.tsv": "aea2b34be75e9715da0041f21a4b65b7bbb84bc8e101d56dd27aeaf94e5bf740",
+    "enumerationsets.tsv": "6a6519dc60916299d409255f2b5d4ec6688f279bc65d46288f4c31caaf715085",
+    "LICENSE": "deaa3fc078425e9e8bc8828fcd21369afee048e50890a80df2fa202c70f0c7d6",
+    "NOTICE": "f03db4482a29cddcfb687f486ad952d1bdb616e64d995cfa77fc7bb1fadfccd1",
+    "official-yaml-schema.json": "8bd224719236b040cc04b6aea8c32a0937d7db9b4855c86fd8cde4459b2e6958",
+    "payloads.tsv": "954e5a810860312eda62e8dc4a9e70afc1088d4356a68323dc879a5ea5ea6d46",
+    "substructures.tsv": "152909ecc489bee35a3e47b5ef9b5ebdb20bde196ce4476a4e969aceafc10937"
+  }
+}

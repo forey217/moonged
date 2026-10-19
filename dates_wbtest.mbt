@@ -59,16 +59,13 @@ test "BCE transitions and period ordering are handled without year zero input" {
 }
 
 ///|
-test "date audit reports definite chronology conflict but preserves unsupported calendars" {
+test "date audit reports chronology conflicts and handles Hebrew calendar dates" {
   let doc = parse(
     "0 HEAD\n1 GEDC\n2 VERS 7.0\n0 @I1@ INDI\n1 NAME A\n1 BIRT\n2 DATE 2000\n1 DEAT\n2 DATE 1900\n1 EVEN\n2 DATE HEBREW 1 TSH 5700\n0 TRLR\n",
   )
   let issues = audit_dates(doc)
   assert_true(issues.any(fn(d) { d.code == "birth-after-death" }))
-  assert_true(
-    issues.any(fn(d) {
-      d.code == "unsupported-calendar" && d.severity == Warning
-    }),
-  )
+  assert_true(!has_errors(issues))
+  assert_eq(parse_date("HEBREW 1 TSH 5784").window().earliest, Some(2460204L))
   assert_true(serialize(doc).contains("HEBREW 1 TSH 5700"))
 }

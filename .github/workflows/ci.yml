@@ -15,6 +15,11 @@ jobs:
           version: '0.10.15+943464bfa'
           core-version: '0.10.15+943464bfa'
       - run: moon version --all
+      - name: Verify pinned schema generation
+        run: |
+          python3 scripts/generate-schema.py
+          moon fmt
+          git diff --exit-code
       - run: moon fmt --check
       - run: moon check --target js --deny-warn
       - run: moon test --target js --deny-warn
@@ -41,3 +46,7 @@ jobs:
         with:
           name: gedcom-interoperability-report
           path: _build/interop.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gedcom-semantic-conformance-report
+          path: _build/semantic-conformance.json

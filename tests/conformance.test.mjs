@@ -27,13 +27,13 @@ test('complete document retains all seven standard record types, citations and m
   assert.match(output, /0 @N1@ SNOTE 共享注释/);
 });
 
-test('name preference, translations, unknown calendar dates and spouse ages survive writing', () => {
+test('name preference, translations, Hebrew/French dates and spouse ages survive writing', () => {
   const text = fixture('names-events');
   const output = engine('normalize', text);
   assert.deepEqual(nodes(output), nodes(text));
   const report = engine('inspect', output);
   assert.equal(report.valid, true);
-  assert.equal(report.diagnostics.filter(d => d.code === 'unsupported-calendar').length, 2);
+  assert.equal(report.diagnostics.filter(d => d.code === 'unsupported-calendar').length, 0);
   assert.deepEqual(report.people[0].names, ['/示例/安', '安 /笔名/']);
   assert.match(output, /2 HUSB\n3 AGE 25y/);
   assert.match(output, /2 DATE HEBREW 1 TSH 5660/);

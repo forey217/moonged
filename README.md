@@ -1,6 +1,6 @@
 # MoonGED
 
-[English](README_EN.md) · [读写符合性与复杂案例](docs/text-conformance.md) · [独立核对](docs/interop.md) · [选题调查](docs/ecosystem-review.md)
+[English](README_EN.md) · [标准语义符合性与案例](docs/semantic-conformance.md) · [完整文档读写](docs/text-conformance.md) · [独立核对](docs/interop.md)
 
 MoonBit 原生 GEDCOM 7 数据交换、家庭关系查询和审查工具库。输入家谱软件导出的 UTF-8 `.ged` 文件，读取人物、家庭、事件和史料引用，检查断链，再导出或供其他 MoonBit 项目查询。
 
@@ -10,9 +10,9 @@ MoonBit 原生 GEDCOM 7 数据交换、家庭关系查询和审查工具库。�
 
 - 带资源限额的完整文本容器解析及增量 UTF-8 字节解析，不按已实现字段筛选文档。支持跨字节分块、BOM、LF/CRLF/CR；保留 Unicode、显著空白、CONT 多行备注、扩展结构及空引用。
 - 规范化 GEDCOM 写出。记录和同类字段顺序保留，默认无 BOM、LF 和末尾换行；SDK 可选择 BOM 与 LF/CRLF/CR，不承诺字节级不变。
-- 选定规则审查：HEAD/GEDC/TRLR、重复标识、悬空/类型错误引用、部分单例字段、扩展声明，以及双向链接缺失、关系环路等质量提示。
+- 完整标准结构表审查：依据官方 GEDCOM 7.0.18 发布版的 179 种结构、1,379 种父子组合及 9 种文档级位置，检查上下文、必填项、单例、载荷、全部 12 组枚举、引用目标和数据类型。另检查家庭反向链接、来源引用环、翻译继承/重复和 REFN 冲突。
 - 人物、家庭、事件视图；有界祖先/后代遍历及最短家庭路径。PEDI 收养等限定按原记录保留，不据此推断生物亲缘。
-- Gregorian/Julian 日期、部分日期与 BCE，保守比较日期范围；ABT/EST 不产生假定的确定生日。其他日历原文保留并提示不做计算。
+- 四种标准历法、日期/日期区间/精确日期的上下文检查。Gregorian、Julian、Hebrew 及法革历历史区间可换算日界；支持 BCE、部分日期、双端不同历法，ABT/EST 不产生假定生日。法革历延伸年份、扩展历法及超大年份保留并明确提示计算边界。
 - 整条记录的引用闭包提取及标识重映射。闭包可能包含整个相连家族，提供记录上限，不用于隐私过滤。
 - Node CLI、中文本地工作台和独立 MoonBit 模块接入样例。
 
@@ -32,13 +32,13 @@ node scripts/serve.mjs
 
 浏览器打开 `http://127.0.0.1:4273/`。页面先显示合成家谱，可选择自己的 `.ged` 文件在本地处理；文件不会上传。网页限制 8 MiB，展示前 20 个家庭和前 500 个可查询人物。
 
-CLI 还提供 `people`、`ancestors`、`descendants`、`nodes`；`--help` 显示参数。标识不带两端的 `@`。退出码：0 成功、1 语法/I/O 失败、2 用法错误或 inspect 审查错误。规范化是读写操作，不是全面 schema 验证。
+CLI 还提供 `people`、`ancestors`、`descendants`、`nodes`；`--help` 显示参数。标识不带两端的 `@`。退出码：0 成功、1 语法/I/O 失败、2 用法错误或 inspect 审查错误。`normalize` 保存容器内容，先运行 `inspect` 可确认标准语义诊断。
 
 `--save` 先完成计算，再以同目录临时文件和硬链接发布 UTF-8 结果，拒绝覆盖已存在文件。目录需存在，文件系统需支持硬链接。CSV 使用 RFC 4180 引号并默认对常见表格公式开头加单引号；需要原始数据时调用 `people_csv(..., spreadsheet_safe=false)`。
 
 ## 在 MoonBit 项目中接入
 
-模块名称：`forey217/moonged`，版本 `0.1.1`，已发布到 [Mooncakes](https://mooncakes.io/docs/forey217/moonged@0.1.1)。在独立项目中运行 `moon add forey217/moonged@0.1.1`。未登录安装和调用验证见 [发布记录](docs/registry-verification.md)。仓库中的 `examples/consumer` 是另一个独立模块，本地工作区通过 `moon.work` 使用源码依赖。
+模块名称：`forey217/moonged`，本次版本 `0.2.0`。发布及实际独立安装状态见 [发布记录](docs/registry-verification.md)。仓库中的 `examples/consumer` 是独立模块，本地工作区通过 `moon.work` 使用源码依赖。
 
 ```moonbit
 import { "forey217/moonged" @ged }
@@ -59,11 +59,11 @@ fn parent_names(text : String, child_id : String) -> Array[String] raise {
 2. 档案/CI：错误样例报告第 6 行悬空引用与第 7 行重复标识，inspect 返回 2；网页禁用错误文件的直接导出。
 3. SDK 接入：独立模块调用公开 API；关系样例跨两代保留 ADOPTED 限定，并可重命名标识或提取完整引用记录。
 
-本地已通过 44 个核心测试、2 个独立模块测试及 9 个 Node 测试（含 CLI 进程与复杂文档读写）。四份复杂输入、规范化预期及保留/变换边界见 [读写约定](docs/text-conformance.md)。JS/Wasm GC 本地运行；原生后端由远程 CI 验证，结果以实际 Actions 记录为准。独立对拍的固定版本、原始报告和已发现的参考工具边界见 [interop.md](docs/interop.md)。不以测试数量代替完整标准一致性或生产采用证据。
+本地通过 55 个核心测试、2 个独立模块测试及 11 个 Node 测试；其中包含从官方 YAML 独立提取的 2,422 个符合性正反案例和 pyluach 2.3.0 的 1,040 个希伯来历边界向量。另保留 36 份文档与独立解析器的往返比对。JS、Wasm GC、Wasm 本地运行，native 以远程 CI 实际记录为准。详细统计、再现命令和语义边界见 [符合性说明](docs/semantic-conformance.md)。
 
 ## 明确的范围
 
-目标为 FamilySearch GEDCOM 7.0 UTF-8 文本。整份文档读写覆盖七类标准记录、头尾及未知扩展，保存全部层级、顺序、载荷和指针，不经过人物视图重建；语义检查是公开列出的子集，未实现全部结构位置、基数、枚举、日历和数据类型规则。文件可缺少末尾换行，输出补上标准换行。
+目标为 FamilySearch GEDCOM 7.0 UTF-8 数据集，按 7.0.18 的第 1–3 章实现文本读写、完整标准结构表及数据类型检查和可机械判定的跨记录规则。未知扩展的外部定义、史料内容及语言/媒体登记有效性不做远程认证，单独报告为未评估范围。文件可缺少末尾换行，输出补上标准换行。测试通过是具体覆盖证据，不代表第三方认证或数学上的穷尽证明。
 
 不支持 GEDZIP、GEDCOM 5 转换、ANSEL、远程媒体、家谱网站登录或记录真实性认证。不读取私人账户，不合并同名人物，不自动确认生物亲缘。日期范围提示、最短关系路径和审查通过都不等于史料事实已被证明。暂未取得生产使用反馈。
 

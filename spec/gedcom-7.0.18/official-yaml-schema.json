@@ -1,0 +1,2813 @@
+{
+  "source": "FamilySearch/GEDCOM v7.0.18 extracted-files/tags",
+  "types": {
+    "ABBR": {
+      "type": "structure",
+      "standard tag": "ABBR",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "ADDR": {
+      "type": "structure",
+      "standard tag": "ADDR",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADR1": "{0:1}",
+        "ADR2": "{0:1}",
+        "ADR3": "{0:1}",
+        "CITY": "{0:1}",
+        "CTRY": "{0:1}",
+        "POST": "{0:1}",
+        "STAE": "{0:1}"
+      }
+    },
+    "ADOP": {
+      "type": "structure",
+      "standard tag": "ADOP",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "ADOP-FAMC": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "ADOP-FAMC": {
+      "type": "structure",
+      "standard tag": "FAMC",
+      "payload": "@<https://gedcom.io/terms/v7/record-FAM>@",
+      "children": {
+        "FAMC-ADOP": "{0:1}"
+      }
+    },
+    "ADR1": {
+      "type": "structure",
+      "standard tag": "ADR1",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "ADR2": {
+      "type": "structure",
+      "standard tag": "ADR2",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "ADR3": {
+      "type": "structure",
+      "standard tag": "ADR3",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "AGE": {
+      "type": "structure",
+      "standard tag": "AGE",
+      "payload": "https://gedcom.io/terms/v7/type-Age",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "AGNC": {
+      "type": "structure",
+      "standard tag": "AGNC",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "ALIA": {
+      "type": "structure",
+      "standard tag": "ALIA",
+      "payload": "@<https://gedcom.io/terms/v7/record-INDI>@",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "ANCI": {
+      "type": "structure",
+      "standard tag": "ANCI",
+      "payload": "@<https://gedcom.io/terms/v7/record-SUBM>@",
+      "children": {}
+    },
+    "ANUL": {
+      "type": "structure",
+      "standard tag": "ANUL",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "ASSO": {
+      "type": "structure",
+      "standard tag": "ASSO",
+      "payload": "@<https://gedcom.io/terms/v7/record-INDI>@",
+      "children": {
+        "NOTE": "{0:M}",
+        "PHRASE": "{0:1}",
+        "ROLE": "{1:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}"
+      }
+    },
+    "AUTH": {
+      "type": "structure",
+      "standard tag": "AUTH",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "BAPL": {
+      "type": "structure",
+      "standard tag": "BAPL",
+      "payload": "null",
+      "children": {
+        "DATE": "{0:1}",
+        "NOTE": "{0:M}",
+        "PLAC": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TEMP": "{0:1}",
+        "ord-STAT": "{0:1}"
+      }
+    },
+    "BAPM": {
+      "type": "structure",
+      "standard tag": "BAPM",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "BARM": {
+      "type": "structure",
+      "standard tag": "BARM",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "BASM": {
+      "type": "structure",
+      "standard tag": "BASM",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "BIRT": {
+      "type": "structure",
+      "standard tag": "BIRT",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAMC": "{0:1}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "BLES": {
+      "type": "structure",
+      "standard tag": "BLES",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "BURI": {
+      "type": "structure",
+      "standard tag": "BURI",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "CALN": {
+      "type": "structure",
+      "standard tag": "CALN",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "MEDI": "{0:1}"
+      }
+    },
+    "CAST": {
+      "type": "structure",
+      "standard tag": "CAST",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "CAUS": {
+      "type": "structure",
+      "standard tag": "CAUS",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "CHAN": {
+      "type": "structure",
+      "standard tag": "CHAN",
+      "payload": "null",
+      "children": {
+        "DATE-exact": "{1:1}",
+        "NOTE": "{0:M}",
+        "SNOTE": "{0:M}"
+      }
+    },
+    "CHIL": {
+      "type": "structure",
+      "standard tag": "CHIL",
+      "payload": "@<https://gedcom.io/terms/v7/record-INDI>@",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "CHR": {
+      "type": "structure",
+      "standard tag": "CHR",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAMC": "{0:1}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "CHRA": {
+      "type": "structure",
+      "standard tag": "CHRA",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "CITY": {
+      "type": "structure",
+      "standard tag": "CITY",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "CONF": {
+      "type": "structure",
+      "standard tag": "CONF",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "CONL": {
+      "type": "structure",
+      "standard tag": "CONL",
+      "payload": "null",
+      "children": {
+        "DATE": "{0:1}",
+        "NOTE": "{0:M}",
+        "PLAC": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TEMP": "{0:1}",
+        "ord-STAT": "{0:1}"
+      }
+    },
+    "COPR": {
+      "type": "structure",
+      "standard tag": "COPR",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "CORP": {
+      "type": "structure",
+      "standard tag": "CORP",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "PHON": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "CREA": {
+      "type": "structure",
+      "standard tag": "CREA",
+      "payload": "null",
+      "children": {
+        "DATE-exact": "{1:1}"
+      }
+    },
+    "CREM": {
+      "type": "structure",
+      "standard tag": "CREM",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "CROP": {
+      "type": "structure",
+      "standard tag": "CROP",
+      "payload": "null",
+      "children": {
+        "HEIGHT": "{0:1}",
+        "LEFT": "{0:1}",
+        "TOP": "{0:1}",
+        "WIDTH": "{0:1}"
+      }
+    },
+    "CTRY": {
+      "type": "structure",
+      "standard tag": "CTRY",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "DATA": {
+      "type": "structure",
+      "standard tag": "DATA",
+      "payload": "null",
+      "children": {
+        "AGNC": "{0:1}",
+        "DATA-EVEN": "{0:M}",
+        "NOTE": "{0:M}",
+        "SNOTE": "{0:M}"
+      }
+    },
+    "DATA-EVEN": {
+      "type": "structure",
+      "standard tag": "EVEN",
+      "payload": "https://gedcom.io/terms/v7/type-List#Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-EVENATTR",
+      "children": {
+        "DATA-EVEN-DATE": "{0:1}",
+        "PLAC": "{0:1}"
+      }
+    },
+    "DATA-EVEN-DATE": {
+      "type": "structure",
+      "standard tag": "DATE",
+      "payload": "https://gedcom.io/terms/v7/type-Date#period",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "DATE": {
+      "type": "structure",
+      "standard tag": "DATE",
+      "payload": "https://gedcom.io/terms/v7/type-Date",
+      "children": {
+        "PHRASE": "{0:1}",
+        "TIME": "{0:1}"
+      }
+    },
+    "DATE-exact": {
+      "type": "structure",
+      "standard tag": "DATE",
+      "payload": "https://gedcom.io/terms/v7/type-Date#exact",
+      "children": {
+        "TIME": "{0:1}"
+      }
+    },
+    "DEAT": {
+      "type": "structure",
+      "standard tag": "DEAT",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "DESI": {
+      "type": "structure",
+      "standard tag": "DESI",
+      "payload": "@<https://gedcom.io/terms/v7/record-SUBM>@",
+      "children": {}
+    },
+    "DEST": {
+      "type": "structure",
+      "standard tag": "DEST",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "DIV": {
+      "type": "structure",
+      "standard tag": "DIV",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "DIVF": {
+      "type": "structure",
+      "standard tag": "DIVF",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "DSCR": {
+      "type": "structure",
+      "standard tag": "DSCR",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "EDUC": {
+      "type": "structure",
+      "standard tag": "EDUC",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "EMAIL": {
+      "type": "structure",
+      "standard tag": "EMAIL",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "EMIG": {
+      "type": "structure",
+      "standard tag": "EMIG",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "ENDL": {
+      "type": "structure",
+      "standard tag": "ENDL",
+      "payload": "null",
+      "children": {
+        "DATE": "{0:1}",
+        "NOTE": "{0:M}",
+        "PLAC": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TEMP": "{0:1}",
+        "ord-STAT": "{0:1}"
+      }
+    },
+    "ENGA": {
+      "type": "structure",
+      "standard tag": "ENGA",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "EXID": {
+      "type": "structure",
+      "standard tag": "EXID",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "EXID-TYPE": "{0:1}"
+      }
+    },
+    "EXID-TYPE": {
+      "type": "structure",
+      "standard tag": "TYPE",
+      "payload": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "children": {}
+    },
+    "FAM-CENS": {
+      "type": "structure",
+      "standard tag": "CENS",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "FAM-EVEN": {
+      "type": "structure",
+      "standard tag": "EVEN",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{1:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "FAM-FACT": {
+      "type": "structure",
+      "standard tag": "FACT",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{1:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "FAM-HUSB": {
+      "type": "structure",
+      "standard tag": "HUSB",
+      "payload": "@<https://gedcom.io/terms/v7/record-INDI>@",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "FAM-NCHI": {
+      "type": "structure",
+      "standard tag": "NCHI",
+      "payload": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "FAM-RESI": {
+      "type": "structure",
+      "standard tag": "RESI",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "FAM-WIFE": {
+      "type": "structure",
+      "standard tag": "WIFE",
+      "payload": "@<https://gedcom.io/terms/v7/record-INDI>@",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "FAMC": {
+      "type": "structure",
+      "standard tag": "FAMC",
+      "payload": "@<https://gedcom.io/terms/v7/record-FAM>@",
+      "children": {}
+    },
+    "FAMC-ADOP": {
+      "type": "structure",
+      "standard tag": "ADOP",
+      "payload": "https://gedcom.io/terms/v7/type-Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-ADOP",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "FAMC-STAT": {
+      "type": "structure",
+      "standard tag": "STAT",
+      "payload": "https://gedcom.io/terms/v7/type-Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-FAMC-STAT",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "FAMS": {
+      "type": "structure",
+      "standard tag": "FAMS",
+      "payload": "@<https://gedcom.io/terms/v7/record-FAM>@",
+      "children": {
+        "NOTE": "{0:M}",
+        "SNOTE": "{0:M}"
+      }
+    },
+    "FAX": {
+      "type": "structure",
+      "standard tag": "FAX",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "FCOM": {
+      "type": "structure",
+      "standard tag": "FCOM",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "FILE": {
+      "type": "structure",
+      "standard tag": "FILE",
+      "payload": "https://gedcom.io/terms/v7/type-FilePath",
+      "children": {
+        "FILE-TRAN": "{0:M}",
+        "FORM": "{1:1}",
+        "TITL": "{0:1}"
+      }
+    },
+    "FILE-TRAN": {
+      "type": "structure",
+      "standard tag": "TRAN",
+      "payload": "https://gedcom.io/terms/v7/type-FilePath",
+      "children": {
+        "FORM": "{1:1}"
+      }
+    },
+    "FORM": {
+      "type": "structure",
+      "standard tag": "FORM",
+      "payload": "http://www.w3.org/ns/dcat#mediaType",
+      "children": {
+        "MEDI": "{0:1}"
+      }
+    },
+    "GEDC": {
+      "type": "structure",
+      "standard tag": "GEDC",
+      "payload": "null",
+      "children": {
+        "GEDC-VERS": "{1:1}"
+      }
+    },
+    "GEDC-VERS": {
+      "type": "structure",
+      "standard tag": "VERS",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "GIVN": {
+      "type": "structure",
+      "standard tag": "GIVN",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "GRAD": {
+      "type": "structure",
+      "standard tag": "GRAD",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "HEAD": {
+      "type": "structure",
+      "standard tag": "HEAD",
+      "payload": "null",
+      "children": {
+        "COPR": "{0:1}",
+        "DEST": "{0:1}",
+        "GEDC": "{1:1}",
+        "HEAD-DATE": "{0:1}",
+        "HEAD-LANG": "{0:1}",
+        "HEAD-PLAC": "{0:1}",
+        "HEAD-SOUR": "{0:1}",
+        "NOTE": "{0:1}",
+        "SCHMA": "{0:1}",
+        "SNOTE": "{0:1}",
+        "SUBM": "{0:1}"
+      }
+    },
+    "HEAD-DATE": {
+      "type": "structure",
+      "standard tag": "DATE",
+      "payload": "https://gedcom.io/terms/v7/type-Date#exact",
+      "children": {
+        "TIME": "{0:1}"
+      }
+    },
+    "HEAD-LANG": {
+      "type": "structure",
+      "standard tag": "LANG",
+      "payload": "http://www.w3.org/2001/XMLSchema#Language",
+      "children": {}
+    },
+    "HEAD-PLAC": {
+      "type": "structure",
+      "standard tag": "PLAC",
+      "payload": "null",
+      "children": {
+        "HEAD-PLAC-FORM": "{1:1}"
+      }
+    },
+    "HEAD-PLAC-FORM": {
+      "type": "structure",
+      "standard tag": "FORM",
+      "payload": "https://gedcom.io/terms/v7/type-List#Text",
+      "children": {}
+    },
+    "HEAD-SOUR": {
+      "type": "structure",
+      "standard tag": "SOUR",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "CORP": "{0:1}",
+        "HEAD-SOUR-DATA": "{0:1}",
+        "NAME": "{0:1}",
+        "VERS": "{0:1}"
+      }
+    },
+    "HEAD-SOUR-DATA": {
+      "type": "structure",
+      "standard tag": "DATA",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "COPR": "{0:1}",
+        "DATE-exact": "{0:1}"
+      }
+    },
+    "HEIGHT": {
+      "type": "structure",
+      "standard tag": "HEIGHT",
+      "payload": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+      "children": {}
+    },
+    "HUSB": {
+      "type": "structure",
+      "standard tag": "HUSB",
+      "payload": "null",
+      "children": {
+        "AGE": "{1:1}"
+      }
+    },
+    "IDNO": {
+      "type": "structure",
+      "standard tag": "IDNO",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{1:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "IMMI": {
+      "type": "structure",
+      "standard tag": "IMMI",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "INDI-CENS": {
+      "type": "structure",
+      "standard tag": "CENS",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "INDI-EVEN": {
+      "type": "structure",
+      "standard tag": "EVEN",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{1:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "INDI-FACT": {
+      "type": "structure",
+      "standard tag": "FACT",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{1:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "INDI-FAMC": {
+      "type": "structure",
+      "standard tag": "FAMC",
+      "payload": "@<https://gedcom.io/terms/v7/record-FAM>@",
+      "children": {
+        "FAMC-STAT": "{0:1}",
+        "NOTE": "{0:M}",
+        "PEDI": "{0:1}",
+        "SNOTE": "{0:M}"
+      }
+    },
+    "INDI-NAME": {
+      "type": "structure",
+      "standard tag": "NAME",
+      "payload": "https://gedcom.io/terms/v7/type-Name",
+      "children": {
+        "GIVN": "{0:M}",
+        "NAME-TRAN": "{0:M}",
+        "NAME-TYPE": "{0:1}",
+        "NICK": "{0:M}",
+        "NOTE": "{0:M}",
+        "NPFX": "{0:M}",
+        "NSFX": "{0:M}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "SPFX": "{0:M}",
+        "SURN": "{0:M}"
+      }
+    },
+    "INDI-NCHI": {
+      "type": "structure",
+      "standard tag": "NCHI",
+      "payload": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "INDI-RELI": {
+      "type": "structure",
+      "standard tag": "RELI",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "INDI-RESI": {
+      "type": "structure",
+      "standard tag": "RESI",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "INDI-TITL": {
+      "type": "structure",
+      "standard tag": "TITL",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "INIL": {
+      "type": "structure",
+      "standard tag": "INIL",
+      "payload": "null",
+      "children": {
+        "DATE": "{0:1}",
+        "NOTE": "{0:M}",
+        "PLAC": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TEMP": "{0:1}",
+        "ord-STAT": "{0:1}"
+      }
+    },
+    "LANG": {
+      "type": "structure",
+      "standard tag": "LANG",
+      "payload": "http://www.w3.org/2001/XMLSchema#Language",
+      "children": {}
+    },
+    "LATI": {
+      "type": "structure",
+      "standard tag": "LATI",
+      "payload": "https://gedcom.io/terms/v7/type-Latitude",
+      "children": {}
+    },
+    "LEFT": {
+      "type": "structure",
+      "standard tag": "LEFT",
+      "payload": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+      "children": {}
+    },
+    "LONG": {
+      "type": "structure",
+      "standard tag": "LONG",
+      "payload": "https://gedcom.io/terms/v7/type-Longitude",
+      "children": {}
+    },
+    "MAP": {
+      "type": "structure",
+      "standard tag": "MAP",
+      "payload": "null",
+      "children": {
+        "LATI": "{1:1}",
+        "LONG": "{1:1}"
+      }
+    },
+    "MARB": {
+      "type": "structure",
+      "standard tag": "MARB",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "MARC": {
+      "type": "structure",
+      "standard tag": "MARC",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "MARL": {
+      "type": "structure",
+      "standard tag": "MARL",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "MARR": {
+      "type": "structure",
+      "standard tag": "MARR",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "MARS": {
+      "type": "structure",
+      "standard tag": "MARS",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "HUSB": "{0:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WIFE": "{0:1}",
+        "WWW": "{0:M}"
+      }
+    },
+    "MEDI": {
+      "type": "structure",
+      "standard tag": "MEDI",
+      "payload": "https://gedcom.io/terms/v7/type-Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-MEDI",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "MIME": {
+      "type": "structure",
+      "standard tag": "MIME",
+      "payload": "http://www.w3.org/ns/dcat#mediaType",
+      "children": {}
+    },
+    "NAME": {
+      "type": "structure",
+      "standard tag": "NAME",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "NAME-TRAN": {
+      "type": "structure",
+      "standard tag": "TRAN",
+      "payload": "https://gedcom.io/terms/v7/type-Name",
+      "children": {
+        "GIVN": "{0:M}",
+        "LANG": "{1:1}",
+        "NICK": "{0:M}",
+        "NPFX": "{0:M}",
+        "NSFX": "{0:M}",
+        "SPFX": "{0:M}",
+        "SURN": "{0:M}"
+      }
+    },
+    "NAME-TYPE": {
+      "type": "structure",
+      "standard tag": "TYPE",
+      "payload": "https://gedcom.io/terms/v7/type-Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-NAME-TYPE",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "NATI": {
+      "type": "structure",
+      "standard tag": "NATI",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "NATU": {
+      "type": "structure",
+      "standard tag": "NATU",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "NICK": {
+      "type": "structure",
+      "standard tag": "NICK",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "NMR": {
+      "type": "structure",
+      "standard tag": "NMR",
+      "payload": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "NO": {
+      "type": "structure",
+      "standard tag": "NO",
+      "payload": "https://gedcom.io/terms/v7/type-Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-EVEN",
+      "children": {
+        "NO-DATE": "{0:1}",
+        "NOTE": "{0:M}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}"
+      }
+    },
+    "NO-DATE": {
+      "type": "structure",
+      "standard tag": "DATE",
+      "payload": "https://gedcom.io/terms/v7/type-Date#period",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "NOTE": {
+      "type": "structure",
+      "standard tag": "NOTE",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "LANG": "{0:1}",
+        "MIME": "{0:1}",
+        "NOTE-TRAN": "{0:M}",
+        "SOUR": "{0:M}"
+      }
+    },
+    "NOTE-TRAN": {
+      "type": "structure",
+      "standard tag": "TRAN",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "LANG": "{0:1}",
+        "MIME": "{0:1}"
+      }
+    },
+    "NPFX": {
+      "type": "structure",
+      "standard tag": "NPFX",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "NSFX": {
+      "type": "structure",
+      "standard tag": "NSFX",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "OBJE": {
+      "type": "structure",
+      "standard tag": "OBJE",
+      "payload": "@<https://gedcom.io/terms/v7/record-OBJE>@",
+      "children": {
+        "CROP": "{0:1}",
+        "TITL": "{0:1}"
+      }
+    },
+    "OCCU": {
+      "type": "structure",
+      "standard tag": "OCCU",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "ord-STAT": {
+      "type": "structure",
+      "standard tag": "STAT",
+      "payload": "https://gedcom.io/terms/v7/type-Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-ord-STAT",
+      "children": {
+        "DATE-exact": "{1:1}"
+      }
+    },
+    "ORDN": {
+      "type": "structure",
+      "standard tag": "ORDN",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "PAGE": {
+      "type": "structure",
+      "standard tag": "PAGE",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "PEDI": {
+      "type": "structure",
+      "standard tag": "PEDI",
+      "payload": "https://gedcom.io/terms/v7/type-Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-PEDI",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "PHON": {
+      "type": "structure",
+      "standard tag": "PHON",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "PHRASE": {
+      "type": "structure",
+      "standard tag": "PHRASE",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "PLAC": {
+      "type": "structure",
+      "standard tag": "PLAC",
+      "payload": "https://gedcom.io/terms/v7/type-List#Text",
+      "children": {
+        "EXID": "{0:M}",
+        "LANG": "{0:1}",
+        "MAP": "{0:1}",
+        "NOTE": "{0:M}",
+        "PLAC-FORM": "{0:1}",
+        "PLAC-TRAN": "{0:M}",
+        "SNOTE": "{0:M}"
+      }
+    },
+    "PLAC-FORM": {
+      "type": "structure",
+      "standard tag": "FORM",
+      "payload": "https://gedcom.io/terms/v7/type-List#Text",
+      "children": {}
+    },
+    "PLAC-TRAN": {
+      "type": "structure",
+      "standard tag": "TRAN",
+      "payload": "https://gedcom.io/terms/v7/type-List#Text",
+      "children": {
+        "LANG": "{1:1}"
+      }
+    },
+    "POST": {
+      "type": "structure",
+      "standard tag": "POST",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "PROB": {
+      "type": "structure",
+      "standard tag": "PROB",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "PROP": {
+      "type": "structure",
+      "standard tag": "PROP",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "PUBL": {
+      "type": "structure",
+      "standard tag": "PUBL",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "QUAY": {
+      "type": "structure",
+      "standard tag": "QUAY",
+      "payload": "https://gedcom.io/terms/v7/type-Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-QUAY",
+      "children": {}
+    },
+    "record-FAM": {
+      "type": "structure",
+      "standard tag": "FAM",
+      "payload": "null",
+      "children": {
+        "ANUL": "{0:M}",
+        "ASSO": "{0:M}",
+        "CHAN": "{0:1}",
+        "CHIL": "{0:M}",
+        "CREA": "{0:1}",
+        "DIV": "{0:M}",
+        "DIVF": "{0:M}",
+        "ENGA": "{0:M}",
+        "EXID": "{0:M}",
+        "FAM-CENS": "{0:M}",
+        "FAM-EVEN": "{0:M}",
+        "FAM-FACT": "{0:M}",
+        "FAM-HUSB": "{0:1}",
+        "FAM-NCHI": "{0:M}",
+        "FAM-RESI": "{0:M}",
+        "FAM-WIFE": "{0:1}",
+        "MARB": "{0:M}",
+        "MARC": "{0:M}",
+        "MARL": "{0:M}",
+        "MARR": "{0:M}",
+        "MARS": "{0:M}",
+        "NO": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "REFN": "{0:M}",
+        "RESN": "{0:1}",
+        "SLGS": "{0:M}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "SUBM": "{0:M}",
+        "UID": "{0:M}"
+      }
+    },
+    "record-INDI": {
+      "type": "structure",
+      "standard tag": "INDI",
+      "payload": "null",
+      "children": {
+        "ADOP": "{0:M}",
+        "ALIA": "{0:M}",
+        "ANCI": "{0:M}",
+        "ASSO": "{0:M}",
+        "BAPL": "{0:M}",
+        "BAPM": "{0:M}",
+        "BARM": "{0:M}",
+        "BASM": "{0:M}",
+        "BIRT": "{0:M}",
+        "BLES": "{0:M}",
+        "BURI": "{0:M}",
+        "CAST": "{0:M}",
+        "CHAN": "{0:1}",
+        "CHR": "{0:M}",
+        "CHRA": "{0:M}",
+        "CONF": "{0:M}",
+        "CONL": "{0:M}",
+        "CREA": "{0:1}",
+        "CREM": "{0:M}",
+        "DEAT": "{0:M}",
+        "DESI": "{0:M}",
+        "DSCR": "{0:M}",
+        "EDUC": "{0:M}",
+        "EMIG": "{0:M}",
+        "ENDL": "{0:M}",
+        "EXID": "{0:M}",
+        "FAMS": "{0:M}",
+        "FCOM": "{0:M}",
+        "GRAD": "{0:M}",
+        "IDNO": "{0:M}",
+        "IMMI": "{0:M}",
+        "INDI-CENS": "{0:M}",
+        "INDI-EVEN": "{0:M}",
+        "INDI-FACT": "{0:M}",
+        "INDI-FAMC": "{0:M}",
+        "INDI-NAME": "{0:M}",
+        "INDI-NCHI": "{0:M}",
+        "INDI-RELI": "{0:M}",
+        "INDI-RESI": "{0:M}",
+        "INDI-TITL": "{0:M}",
+        "INIL": "{0:M}",
+        "NATI": "{0:M}",
+        "NATU": "{0:M}",
+        "NMR": "{0:M}",
+        "NO": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "OCCU": "{0:M}",
+        "ORDN": "{0:M}",
+        "PROB": "{0:M}",
+        "PROP": "{0:M}",
+        "REFN": "{0:M}",
+        "RESN": "{0:1}",
+        "RETI": "{0:M}",
+        "SEX": "{0:1}",
+        "SLGC": "{0:M}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "SSN": "{0:M}",
+        "SUBM": "{0:M}",
+        "UID": "{0:M}",
+        "WILL": "{0:M}"
+      }
+    },
+    "record-OBJE": {
+      "type": "structure",
+      "standard tag": "OBJE",
+      "payload": "null",
+      "children": {
+        "CHAN": "{0:1}",
+        "CREA": "{0:1}",
+        "EXID": "{0:M}",
+        "FILE": "{1:M}",
+        "NOTE": "{0:M}",
+        "REFN": "{0:M}",
+        "RESN": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "UID": "{0:M}"
+      }
+    },
+    "record-REPO": {
+      "type": "structure",
+      "standard tag": "REPO",
+      "payload": "null",
+      "children": {
+        "ADDR": "{0:1}",
+        "CHAN": "{0:1}",
+        "CREA": "{0:1}",
+        "EMAIL": "{0:M}",
+        "EXID": "{0:M}",
+        "FAX": "{0:M}",
+        "NAME": "{1:1}",
+        "NOTE": "{0:M}",
+        "PHON": "{0:M}",
+        "REFN": "{0:M}",
+        "SNOTE": "{0:M}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "record-SNOTE": {
+      "type": "structure",
+      "standard tag": "SNOTE",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "CHAN": "{0:1}",
+        "CREA": "{0:1}",
+        "EXID": "{0:M}",
+        "LANG": "{0:1}",
+        "MIME": "{0:1}",
+        "NOTE-TRAN": "{0:M}",
+        "REFN": "{0:M}",
+        "SOUR": "{0:M}",
+        "UID": "{0:M}"
+      }
+    },
+    "record-SOUR": {
+      "type": "structure",
+      "standard tag": "SOUR",
+      "payload": "null",
+      "children": {
+        "ABBR": "{0:1}",
+        "AUTH": "{0:1}",
+        "CHAN": "{0:1}",
+        "CREA": "{0:1}",
+        "DATA": "{0:1}",
+        "EXID": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PUBL": "{0:1}",
+        "REFN": "{0:M}",
+        "REPO": "{0:M}",
+        "SNOTE": "{0:M}",
+        "TEXT": "{0:1}",
+        "TITL": "{0:1}",
+        "UID": "{0:M}"
+      }
+    },
+    "record-SUBM": {
+      "type": "structure",
+      "standard tag": "SUBM",
+      "payload": "null",
+      "children": {
+        "ADDR": "{0:1}",
+        "CHAN": "{0:1}",
+        "CREA": "{0:1}",
+        "EMAIL": "{0:M}",
+        "EXID": "{0:M}",
+        "FAX": "{0:M}",
+        "NAME": "{1:1}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "REFN": "{0:M}",
+        "SNOTE": "{0:M}",
+        "SUBM-LANG": "{0:M}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "REFN": {
+      "type": "structure",
+      "standard tag": "REFN",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "TYPE": "{0:1}"
+      }
+    },
+    "RELI": {
+      "type": "structure",
+      "standard tag": "RELI",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "REPO": {
+      "type": "structure",
+      "standard tag": "REPO",
+      "payload": "@<https://gedcom.io/terms/v7/record-REPO>@",
+      "children": {
+        "CALN": "{0:M}",
+        "NOTE": "{0:M}",
+        "SNOTE": "{0:M}"
+      }
+    },
+    "RESN": {
+      "type": "structure",
+      "standard tag": "RESN",
+      "payload": "https://gedcom.io/terms/v7/type-List#Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-RESN",
+      "children": {}
+    },
+    "RETI": {
+      "type": "structure",
+      "standard tag": "RETI",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "ROLE": {
+      "type": "structure",
+      "standard tag": "ROLE",
+      "payload": "https://gedcom.io/terms/v7/type-Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-ROLE",
+      "children": {
+        "PHRASE": "{0:1}"
+      }
+    },
+    "SCHMA": {
+      "type": "structure",
+      "standard tag": "SCHMA",
+      "payload": "null",
+      "children": {
+        "TAG": "{0:M}"
+      }
+    },
+    "SDATE": {
+      "type": "structure",
+      "standard tag": "SDATE",
+      "payload": "https://gedcom.io/terms/v7/type-Date",
+      "children": {
+        "PHRASE": "{0:1}",
+        "TIME": "{0:1}"
+      }
+    },
+    "SEX": {
+      "type": "structure",
+      "standard tag": "SEX",
+      "payload": "https://gedcom.io/terms/v7/type-Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-SEX",
+      "children": {}
+    },
+    "SLGC": {
+      "type": "structure",
+      "standard tag": "SLGC",
+      "payload": "null",
+      "children": {
+        "DATE": "{0:1}",
+        "FAMC": "{1:1}",
+        "NOTE": "{0:M}",
+        "PLAC": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TEMP": "{0:1}",
+        "ord-STAT": "{0:1}"
+      }
+    },
+    "SLGS": {
+      "type": "structure",
+      "standard tag": "SLGS",
+      "payload": "null",
+      "children": {
+        "DATE": "{0:1}",
+        "NOTE": "{0:M}",
+        "PLAC": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TEMP": "{0:1}",
+        "ord-STAT": "{0:1}"
+      }
+    },
+    "SNOTE": {
+      "type": "structure",
+      "standard tag": "SNOTE",
+      "payload": "@<https://gedcom.io/terms/v7/record-SNOTE>@",
+      "children": {}
+    },
+    "SOUR": {
+      "type": "structure",
+      "standard tag": "SOUR",
+      "payload": "@<https://gedcom.io/terms/v7/record-SOUR>@",
+      "children": {
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PAGE": "{0:1}",
+        "QUAY": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR-DATA": "{0:1}",
+        "SOUR-EVEN": "{0:1}"
+      }
+    },
+    "SOUR-DATA": {
+      "type": "structure",
+      "standard tag": "DATA",
+      "payload": "null",
+      "children": {
+        "DATE": "{0:1}",
+        "TEXT": "{0:M}"
+      }
+    },
+    "SOUR-EVEN": {
+      "type": "structure",
+      "standard tag": "EVEN",
+      "payload": "https://gedcom.io/terms/v7/type-Enum",
+      "enumeration set": "https://gedcom.io/terms/v7/enumset-EVENATTR",
+      "children": {
+        "PHRASE": "{0:1}",
+        "ROLE": "{0:1}"
+      }
+    },
+    "SPFX": {
+      "type": "structure",
+      "standard tag": "SPFX",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "SSN": {
+      "type": "structure",
+      "standard tag": "SSN",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "STAE": {
+      "type": "structure",
+      "standard tag": "STAE",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "SUBM": {
+      "type": "structure",
+      "standard tag": "SUBM",
+      "payload": "@<https://gedcom.io/terms/v7/record-SUBM>@",
+      "children": {}
+    },
+    "SUBM-LANG": {
+      "type": "structure",
+      "standard tag": "LANG",
+      "payload": "http://www.w3.org/2001/XMLSchema#Language",
+      "children": {}
+    },
+    "SURN": {
+      "type": "structure",
+      "standard tag": "SURN",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "TAG": {
+      "type": "structure",
+      "standard tag": "TAG",
+      "payload": "https://gedcom.io/terms/v7/type-TagDef",
+      "children": {}
+    },
+    "TEMP": {
+      "type": "structure",
+      "standard tag": "TEMP",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "TEXT": {
+      "type": "structure",
+      "standard tag": "TEXT",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {
+        "LANG": "{0:1}",
+        "MIME": "{0:1}"
+      }
+    },
+    "TIME": {
+      "type": "structure",
+      "standard tag": "TIME",
+      "payload": "https://gedcom.io/terms/v7/type-Time",
+      "children": {}
+    },
+    "TITL": {
+      "type": "structure",
+      "standard tag": "TITL",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "TOP": {
+      "type": "structure",
+      "standard tag": "TOP",
+      "payload": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+      "children": {}
+    },
+    "TRLR": {
+      "type": "structure",
+      "standard tag": "TRLR",
+      "payload": "null",
+      "children": {}
+    },
+    "TYPE": {
+      "type": "structure",
+      "standard tag": "TYPE",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "UID": {
+      "type": "structure",
+      "standard tag": "UID",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "VERS": {
+      "type": "structure",
+      "standard tag": "VERS",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    },
+    "WIDTH": {
+      "type": "structure",
+      "standard tag": "WIDTH",
+      "payload": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+      "children": {}
+    },
+    "WIFE": {
+      "type": "structure",
+      "standard tag": "WIFE",
+      "payload": "null",
+      "children": {
+        "AGE": "{1:1}"
+      }
+    },
+    "WILL": {
+      "type": "structure",
+      "standard tag": "WILL",
+      "payload": "Y|<NULL>",
+      "children": {
+        "ADDR": "{0:1}",
+        "AGE": "{0:1}",
+        "AGNC": "{0:1}",
+        "ASSO": "{0:M}",
+        "CAUS": "{0:1}",
+        "DATE": "{0:1}",
+        "EMAIL": "{0:M}",
+        "FAX": "{0:M}",
+        "NOTE": "{0:M}",
+        "OBJE": "{0:M}",
+        "PHON": "{0:M}",
+        "PLAC": "{0:1}",
+        "RELI": "{0:1}",
+        "RESN": "{0:1}",
+        "SDATE": "{0:1}",
+        "SNOTE": "{0:M}",
+        "SOUR": "{0:M}",
+        "TYPE": "{0:1}",
+        "UID": "{0:M}",
+        "WWW": "{0:M}"
+      }
+    },
+    "WWW": {
+      "type": "structure",
+      "standard tag": "WWW",
+      "payload": "http://www.w3.org/2001/XMLSchema#string",
+      "children": {}
+    }
+  },
+  "enums": {
+    "DATA-EVEN": [
+      "CENS",
+      "NCHI",
+      "RESI",
+      "FACT",
+      "EVEN",
+      "ADOP",
+      "BAPM",
+      "BARM",
+      "BASM",
+      "BIRT",
+      "BLES",
+      "BURI",
+      "CHR",
+      "CHRA",
+      "CONF",
+      "CREM",
+      "DEAT",
+      "EMIG",
+      "FCOM",
+      "GRAD",
+      "IMMI",
+      "NATU",
+      "ORDN",
+      "PROB",
+      "RETI",
+      "WILL",
+      "ANUL",
+      "DIV",
+      "DIVF",
+      "ENGA",
+      "MARB",
+      "MARC",
+      "MARL",
+      "MARR",
+      "MARS",
+      "CAST",
+      "DSCR",
+      "EDUC",
+      "IDNO",
+      "NATI",
+      "NMR",
+      "OCCU",
+      "PROP",
+      "RELI",
+      "SSN",
+      "TITL"
+    ],
+    "FAMC-ADOP": [
+      "HUSB",
+      "WIFE",
+      "BOTH"
+    ],
+    "FAMC-STAT": [
+      "CHALLENGED",
+      "DISPROVEN",
+      "PROVEN"
+    ],
+    "MEDI": [
+      "AUDIO",
+      "BOOK",
+      "CARD",
+      "ELECTRONIC",
+      "FICHE",
+      "FILM",
+      "MAGAZINE",
+      "MANUSCRIPT",
+      "MAP",
+      "NEWSPAPER",
+      "PHOTO",
+      "TOMBSTONE",
+      "VIDEO",
+      "OTHER"
+    ],
+    "NAME-TYPE": [
+      "AKA",
+      "BIRTH",
+      "IMMIGRANT",
+      "MAIDEN",
+      "MARRIED",
+      "PROFESSIONAL",
+      "OTHER"
+    ],
+    "NO": [
+      "CENS",
+      "ADOP",
+      "BAPM",
+      "BARM",
+      "BASM",
+      "BIRT",
+      "BLES",
+      "BURI",
+      "CHR",
+      "CHRA",
+      "CONF",
+      "CREM",
+      "DEAT",
+      "EMIG",
+      "FCOM",
+      "GRAD",
+      "IMMI",
+      "NATU",
+      "ORDN",
+      "PROB",
+      "RETI",
+      "WILL",
+      "ANUL",
+      "DIV",
+      "DIVF",
+      "ENGA",
+      "MARB",
+      "MARC",
+      "MARL",
+      "MARR",
+      "MARS"
+    ],
+    "ord-STAT": [
+      "BIC",
+      "CANCELED",
+      "CHILD",
+      "COMPLETED",
+      "EXCLUDED",
+      "DNS",
+      "DNS_CAN",
+      "INFANT",
+      "PRE_1970",
+      "STILLBORN",
+      "SUBMITTED",
+      "UNCLEARED"
+    ],
+    "PEDI": [
+      "ADOPTED",
+      "BIRTH",
+      "FOSTER",
+      "SEALING",
+      "OTHER"
+    ],
+    "QUAY": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "RESN": [
+      "CONFIDENTIAL",
+      "LOCKED",
+      "PRIVACY"
+    ],
+    "ROLE": [
+      "CHIL",
+      "CLERGY",
+      "FATH",
+      "FRIEND",
+      "GODP",
+      "HUSB",
+      "MOTH",
+      "MULTIPLE",
+      "NGHBR",
+      "OFFICIATOR",
+      "PARENT",
+      "SPOU",
+      "WIFE",
+      "WITN",
+      "OTHER"
+    ],
+    "SEX": [
+      "M",
+      "F",
+      "X",
+      "U"
+    ],
+    "SOUR-EVEN": [
+      "CENS",
+      "NCHI",
+      "RESI",
+      "FACT",
+      "EVEN",
+      "ADOP",
+      "BAPM",
+      "BARM",
+      "BASM",
+      "BIRT",
+      "BLES",
+      "BURI",
+      "CHR",
+      "CHRA",
+      "CONF",
+      "CREM",
+      "DEAT",
+      "EMIG",
+      "FCOM",
+      "GRAD",
+      "IMMI",
+      "NATU",
+      "ORDN",
+      "PROB",
+      "RETI",
+      "WILL",
+      "ANUL",
+      "DIV",
+      "DIVF",
+      "ENGA",
+      "MARB",
+      "MARC",
+      "MARL",
+      "MARR",
+      "MARS",
+      "CAST",
+      "DSCR",
+      "EDUC",
+      "IDNO",
+      "NATI",
+      "NMR",
+      "OCCU",
+      "PROP",
+      "RELI",
+      "SSN",
+      "TITL"
+    ]
+  }
+}
