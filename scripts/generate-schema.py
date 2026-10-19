@@ -38,7 +38,7 @@ for uri, eset in sorted(members.items()):
     out.append('  (' + q(short(uri)) + ', [' + ', '.join(map(q,sorted(enums[eset].values()))) + ']),')
 out += ['])','']
 (root / 'schema_data.mbt').write_text('\n'.join(out), encoding='utf-8', newline='\n')
-manifest = {p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(src.iterdir()) if p.is_file() and p.name != 'provenance.json'}
+manifest = {p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(src.iterdir(),key=lambda p:p.name.casefold()) if p.is_file() and p.name != 'provenance.json'}
 report = {'specification':'7.0.18','structures':len(types),'parent_child_rules':sum(map(len,groups.values())), 'enum_sets':len(enums), 'sources':manifest}
 (src / 'provenance.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 print(json.dumps({k:v for k,v in report.items() if k!='sources'}))
